@@ -1,0 +1,21 @@
+{
+  "name": "gpasada-mobile-app",
+  "version": "1.0.0",
+  "description": "GPasada - Transport Cooperative Financial Management System (GCash-inspired UI)",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve .",
+    "build": "echo 'Static project ready for deployment'"
+  },
+  "keywords": [
+    "transport",
+    "cooperative",
+    "gcash",
+    "financial",
+    "remittance",
+    "mobile-ui"
+  ],
+  "author": "",
+  "license": "MIT"
+}
