@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#34C759"/>
+      <stop offset="100%" stop-color="#28A745"/>
+    </linearGradient>
+  </defs>
+  <circle cx="60" cy="60" r="58" fill="url(#bgGrad2)" stroke="#FFFFFF" stroke-width="4"/>
+  <!-- Driver Head & Cap -->
+  <circle cx="60" cy="50" r="22" fill="#FDE047"/>
+  <!-- Cap -->
+  <path d="M 38 42 Q 60 26 82 42 L 88 47 Q 60 40 32 47 Z" fill="#0F172A"/>
+  <rect x="52" y="30" width="16" height="6" rx="2" fill="#4ADE80"/>
+  <!-- Eyes & Smile -->
+  <circle cx="52" cy="50" r="2.5" fill="#0F172A"/>
+  <circle cx="68" cy="50" r="2.5" fill="#0F172A"/>
+  <path d="M 52 58 Q 60 65 68 58" stroke="#0F172A" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- Uniform / Shoulders -->
+  <path d="M 24 105 C 26 80 40 76 60 76 C 80 76 94 80 96 105 Z" fill="#FFFFFF"/>
+  <path d="M 54 76 L 60 92 L 66 76 Z" fill="#34C759"/>
+  <text x="60" y="112" font-family="sans-serif" font-size="8" font-weight="900" fill="#28A745" text-anchor="middle">M. REYES</text>
+</svg>

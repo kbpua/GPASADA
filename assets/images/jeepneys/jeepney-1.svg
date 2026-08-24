@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 180" width="100%" height="100%">
+  <defs>
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E0F2FE"/>
+      <stop offset="100%" stop-color="#BAE6FD"/>
+    </linearGradient>
+    <linearGradient id="bodyGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#007DFE"/>
+      <stop offset="100%" stop-color="#0056B3"/>
+    </linearGradient>
+    <linearGradient id="metalGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E2E8F0"/>
+      <stop offset="50%" stop-color="#CBD5E1"/>
+      <stop offset="100%" stop-color="#94A3B8"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="300" height="180" fill="url(#skyGrad)" rx="16"/>
+  <rect y="140" width="300" height="40" fill="#334155"/>
+  <line x1="0" y1="140" x2="300" y2="140" stroke="#007DFE" stroke-width="4"/>
+  
+  <!-- Jeepney Body (Traditional PUJ) -->
+  <!-- Hood & Grill -->
+  <path d="M 30 115 L 45 75 L 110 75 L 125 60 L 260 60 L 270 120 L 30 120 Z" fill="url(#bodyGrad)"/>
+  <rect x="25" y="85" width="22" height="35" rx="4" fill="url(#metalGrad)"/>
+  
+  <!-- Traditional Jeepney Hood Ornament / Horse -->
+  <circle cx="45" cy="70" r="5" fill="#F59E0B"/>
+  
+  <!-- Windows -->
+  <rect x="120" y="66" width="30" height="24" rx="3" fill="#FFFFFF" opacity="0.85"/>
+  <rect x="160" y="66" width="40" height="22" rx="3" fill="#FFFFFF" opacity="0.85"/>
+  <rect x="210" y="66" width="45" height="22" rx="3" fill="#FFFFFF" opacity="0.85"/>
+  
+  <!-- Route Banner Text -->
+  <rect x="130" y="94" width="125" height="15" rx="3" fill="#FEF08A"/>
+  <text x="192" y="105" font-family="sans-serif" font-size="9" font-weight="900" fill="#854D0E" text-anchor="middle">BACLARAN - PASAY</text>
+  
+  <!-- Plate Badge -->
+  <rect x="48" y="112" width="48" height="14" rx="2" fill="#FFFFFF" stroke="#000" stroke-width="1"/>
+  <text x="72" y="123" font-family="monospace" font-size="9" font-weight="bold" fill="#000" text-anchor="middle">ABC-1021</text>
+  
+  <!-- Wheels -->
+  <circle cx="75" cy="135" r="20" fill="#1E293B"/>
+  <circle cx="75" cy="135" r="10" fill="url(#metalGrad)"/>
+  <circle cx="230" cy="135" r="20" fill="#1E293B"/>
+  <circle cx="230" cy="135" r="10" fill="url(#metalGrad)"/>
+  
+  <!-- Badge Tag -->
+  <rect x="15" y="14" width="115" height="24" rx="6" fill="#007DFE"/>
+  <text x="72" y="30" font-family="sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF" text-anchor="middle">🚐 JEEPNEY #021</text>
+</svg>

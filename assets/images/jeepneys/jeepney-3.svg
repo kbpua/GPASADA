@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 180" width="100%" height="100%">
+  <defs>
+    <linearGradient id="skyGrad3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FEF2F2"/>
+      <stop offset="100%" stop-color="#FEE2E2"/>
+    </linearGradient>
+    <linearGradient id="bodyGrad3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0284C7"/>
+      <stop offset="100%" stop-color="#0369A1"/>
+    </linearGradient>
+  </defs>
+  
+  <rect width="300" height="180" fill="url(#skyGrad3)" rx="16"/>
+  <rect y="140" width="300" height="40" fill="#334155"/>
+  <line x1="0" y1="140" x2="300" y2="140" stroke="#0284C7" stroke-width="4"/>
+  
+  <!-- Modernized Minibus Body -->
+  <rect x="35" y="45" width="235" height="85" rx="14" fill="url(#bodyGrad3)"/>
+  <path d="M 35 75 L 20 120 L 35 125 Z" fill="#0369A1"/>
+  
+  <!-- Windows -->
+  <rect x="50" y="55" width="40" height="35" rx="4" fill="#FFFFFF" opacity="0.9"/>
+  <rect x="100" y="55" width="45" height="35" rx="4" fill="#FFFFFF" opacity="0.9"/>
+  <rect x="155" y="55" width="45" height="35" rx="4" fill="#FFFFFF" opacity="0.9"/>
+  <rect x="210" y="55" width="48" height="35" rx="4" fill="#FFFFFF" opacity="0.9"/>
+  
+  <!-- Route Display -->
+  <rect x="110" y="98" width="130" height="16" rx="4" fill="#FEF08A"/>
+  <text x="175" y="110" font-family="sans-serif" font-size="9" font-weight="900" fill="#854D0E" text-anchor="middle">BACLARAN - PASAY</text>
+  
+  <!-- Plate Badge -->
+  <rect x="42" y="112" width="48" height="14" rx="2" fill="#FFFFFF" stroke="#000" stroke-width="1"/>
+  <text x="66" y="123" font-family="monospace" font-size="9" font-weight="bold" fill="#000" text-anchor="middle">NBF-9823</text>
+  
+  <!-- Wheels -->
+  <circle cx="80" cy="135" r="20" fill="#1E293B"/>
+  <circle cx="80" cy="135" r="10" fill="#CBD5E1"/>
+  <circle cx="225" cy="135" r="20" fill="#1E293B"/>
+  <circle cx="225" cy="135" r="10" fill="#CBD5E1"/>
+  
+  <!-- Badge Tag -->
+  <rect x="15" y="14" width="140" height="24" rx="6" fill="#EF4444"/>
+  <text x="85" y="30" font-family="sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF" text-anchor="middle">⚠️ JEEPNEY #023 (REVIEW)</text>
+</svg>

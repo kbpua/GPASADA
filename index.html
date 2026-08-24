@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-  <title>GPasada — Transport Cooperative Financial Management</title>
-  <meta name="description" content="Consolidate daily fare collections, track remittances, and manage transport cooperative operating budgets with GPasada." />
+  <title>GPasada — Transport Cooperative Financial Management & Analytics</title>
+  <meta name="description" content="Consolidate daily fare collections, track remittances, manage operating budgets, and visualize real-time transit analytics with GPasada." />
   
   <!-- Font Awesome 6 CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   
-  <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -73,13 +73,13 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Desktop Preview Toolbar */
+    /* Desktop Preview Controls */
     .viewport-controls {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
       background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(12px);
       padding: 8px 18px;
@@ -147,7 +147,7 @@
     }
 
     /* ==========================================================================
-       1. PERSISTENT TOP APP BAR (STICKY / FIXED AT TOP)
+       1. PERSISTENT TOP APP BAR (CLEAN, NO SIMULATED STATUS BAR)
        ========================================================================== */
     .persistent-top-header {
       background: var(--primary-dark);
@@ -155,38 +155,42 @@
       z-index: 800;
       box-shadow: 0 4px 16px rgba(0, 86, 179, 0.25);
       flex-shrink: 0;
-    }
-
-    .ios-top-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 18px 4px 18px;
-      font-size: 13px;
-      font-weight: 700;
+      padding: 12px 16px 12px 16px;
       color: #FFFFFF;
-      letter-spacing: -0.2px;
-    }
-
-    .top-bar-icons {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 12px;
     }
 
     .brand-top-nav {
-      padding: 6px 18px 12px 18px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      color: #FFFFFF;
     }
 
     .brand-group-title {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
+      cursor: pointer;
+    }
+
+    .header-back-btn {
+      display: none;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: #FFFFFF;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 14px;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .header-back-btn.visible {
+      display: flex;
+    }
+    .header-back-btn:hover {
+      background: rgba(255, 255, 255, 0.35);
     }
 
     .brand-logo-circle {
@@ -199,13 +203,12 @@
       justify-content: center;
       font-size: 18px;
       color: #FFFFFF;
-      transition: all 0.2s ease;
     }
 
     .brand-text {
-      font-size: 19px;
+      font-size: 18px;
       font-weight: 800;
-      letter-spacing: -0.4px;
+      letter-spacing: -0.3px;
       display: flex;
       align-items: center;
       gap: 6px;
@@ -224,17 +227,17 @@
     .header-btn-cluster {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
     }
 
     .header-round-btn {
-      width: 36px;
-      height: 36px;
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
       background: rgba(255, 255, 255, 0.16);
       border: none;
       color: #FFFFFF;
-      font-size: 15px;
+      font-size: 14px;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -248,10 +251,10 @@
 
     .header-notif-dot {
       position: absolute;
-      top: 6px;
-      right: 6px;
-      width: 8px;
-      height: 8px;
+      top: 5px;
+      right: 5px;
+      width: 7px;
+      height: 7px;
       background: var(--danger-red);
       border-radius: 50%;
       border: 2px solid var(--primary-dark);
@@ -287,7 +290,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Sub-header banner inside tabs */
+    /* Sub-header ribbon inside views */
     .coop-banner-ribbon {
       background: rgba(0, 86, 179, 0.08);
       border: 1px solid rgba(0, 125, 254, 0.15);
@@ -320,7 +323,7 @@
     }
 
     /* ==========================================================================
-       BALANCE HERO CARD (GCASH STYLE)
+       HERO BALANCE CARD (GCASH STYLE)
        ========================================================================== */
     .hero-gradient-backdrop {
       padding: 0 16px;
@@ -447,7 +450,7 @@
     }
 
     /* ==========================================================================
-       ACTION GRID (8 ITEMS - 56px CIRCULAR BLUE ICONS)
+       ACTION GRID (8 WORKING PAGES / MODALS)
        ========================================================================== */
     .section-stage {
       padding: 12px 16px;
@@ -531,7 +534,7 @@
     }
 
     /* ==========================================================================
-       SECTION HEADERS & DRIVER CARDS
+       SECTION HEADERS & VEHICLE ACCENT CARDS
        ========================================================================== */
     .section-title-row {
       display: flex;
@@ -592,8 +595,32 @@
     .driver-card-header-row {
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
+      align-items: center;
       margin-bottom: 6px;
+    }
+
+    .driver-left-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .driver-avatar-mini {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--primary-light);
+      flex-shrink: 0;
+    }
+
+    .driver-avatar-lg {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--primary);
+      flex-shrink: 0;
     }
 
     .driver-name-title {
@@ -612,6 +639,18 @@
       color: var(--primary);
       padding: 1px 6px;
       border-radius: 4px;
+    }
+
+    .plate-number-badge {
+      font-size: 10px;
+      font-weight: 800;
+      background: #F1F5F9;
+      color: #334155;
+      padding: 2px 6px;
+      border-radius: 4px;
+      border: 1px solid #CBD5E1;
+      letter-spacing: 0.5px;
+      font-family: monospace;
     }
 
     .route-subtext {
@@ -683,7 +722,7 @@
     }
 
     /* ==========================================================================
-       SUMMARY AGGREGATE CARD
+       SUMMARY & FEATURE CARDS
        ========================================================================== */
     .summary-aggregate-card {
       background: var(--bg-card);
@@ -779,9 +818,7 @@
       background: #F2F2F7;
     }
 
-    /* ==========================================================================
-       FEATURE DECK (HORIZONTAL SCROLL)
-       ========================================================================== */
+    /* Feature horizontal scroll deck */
     .horizontal-scroll-deck {
       display: flex;
       gap: 10px;
@@ -870,9 +907,7 @@
       gap: 4px;
     }
 
-    /* ==========================================================================
-       RECENT ACTIVITY LIST
-       ========================================================================== */
+    /* History list */
     .history-card-box {
       background: var(--bg-card);
       border-radius: 12px;
@@ -902,10 +937,6 @@
       display: flex;
       align-items: center;
       gap: 10px;
-    }
-
-    .history-icon-emoji {
-      font-size: 15px;
     }
 
     .history-driver-name {
@@ -958,7 +989,7 @@
     }
 
     /* ==========================================================================
-       SUB-SCREENS: FLEET, REPORTS, PROFILE
+       GENERIC CARD & FORM STYLES
        ========================================================================== */
     .generic-list-stack {
       display: flex;
@@ -969,113 +1000,10 @@
 
     .generic-box-card {
       background: var(--bg-card);
-      border-radius: 12px;
+      border-radius: 14px;
       padding: 14px;
       box-shadow: var(--shadow-sm);
       border: 1px solid var(--border-color);
-    }
-
-    /* Fleet Unit Cards */
-    .fleet-card-top-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 4px;
-    }
-    .fleet-unit-title {
-      font-size: 14px;
-      font-weight: 800;
-      color: var(--text-primary);
-    }
-    .fleet-driver-info {
-      font-size: 11.5px;
-      color: var(--text-secondary);
-      margin-bottom: 8px;
-    }
-    .fleet-collection-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 12px;
-      padding-top: 8px;
-      border-top: 1px dashed var(--border-color);
-    }
-    .fleet-amount-bold {
-      color: var(--primary);
-      font-size: 15px;
-      font-weight: 800;
-    }
-
-    /* Reports Screen Cards */
-    .report-badge-pill {
-      font-size: 10px;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 6px;
-    }
-    .report-stat-num {
-      font-size: 24px;
-      font-weight: 800;
-      color: var(--text-primary);
-      margin: 4px 0 8px 0;
-      letter-spacing: -0.4px;
-    }
-    .report-breakdown-row {
-      font-size: 11.5px;
-      color: var(--text-secondary);
-      display: flex;
-      justify-content: space-between;
-      font-weight: 600;
-    }
-    .report-item-list {
-      list-style: none;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--text-primary);
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .report-list-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 6px 0;
-      border-bottom: 1px solid var(--border-light);
-      cursor: pointer;
-      transition: color 0.15s;
-    }
-    .report-list-row:last-child {
-      border-bottom: none;
-    }
-    .report-list-row:hover {
-      color: var(--primary);
-    }
-
-    /* Profile Screen Cards */
-    .profile-title-h3 {
-      font-size: 15px;
-      font-weight: 800;
-      margin-bottom: 6px;
-      color: var(--text-primary);
-    }
-    .profile-info-text {
-      font-size: 11.5px;
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
-    .profile-setting-item {
-      padding: 9px 0;
-      font-size: 12px;
-      font-weight: 600;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid var(--border-light);
-      cursor: pointer;
-    }
-    .profile-setting-item:last-child {
-      border-bottom: none;
     }
 
     .primary-wide-btn {
@@ -1100,7 +1028,338 @@
     }
 
     /* ==========================================================================
-       2. PERSISTENT BOTTOM NAVIGATION BAR
+       VEHICLES (JEEPNEYS & TRICYCLE) CARD STYLES
+       ========================================================================== */
+    .vehicle-card {
+      background: var(--bg-card);
+      border-radius: 14px;
+      padding: 14px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+      border-left: 5px solid var(--primary);
+      transition: all 0.2s ease;
+    }
+    .vehicle-card.active { border-left-color: var(--secondary-green); }
+    .vehicle-card.review { border-left-color: var(--danger-red); }
+    .vehicle-card.standby { border-left-color: #94A3B8; }
+
+    .vehicle-thumb-img {
+      width: 100%;
+      height: 135px;
+      border-radius: 10px;
+      object-fit: cover;
+      margin-bottom: 10px;
+      border: 1px solid var(--border-light);
+      display: block;
+    }
+
+    .vehicle-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+    .vehicle-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .vehicle-title-text {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    .vehicle-driver-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11.5px;
+      color: var(--text-secondary);
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px dashed var(--border-color);
+    }
+
+    .vehicle-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .vehicle-stat-box {
+      background: #F8FAFC;
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-size: 11px;
+    }
+
+    .vehicle-actions-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    /* ==========================================================================
+       COOPERATIVE PROFILE ENHANCEMENTS (GCASH SETTINGS STYLE)
+       ========================================================================== */
+    .profile-hero-card {
+      background: var(--primary-gradient);
+      border-radius: 16px;
+      padding: 18px 20px;
+      color: #FFFFFF;
+      margin-bottom: 12px;
+      box-shadow: var(--shadow-card);
+      position: relative;
+      overflow: hidden;
+    }
+    .profile-hero-title {
+      font-size: 16px;
+      font-weight: 800;
+      margin-bottom: 3px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .profile-hero-subtitle {
+      font-size: 11px;
+      color: #E3F2FD;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    .profile-badges-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .profile-pill-tag {
+      font-size: 9.5px;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.22);
+      padding: 3px 8px;
+      border-radius: 12px;
+    }
+
+    /* GCash Settings Menu Items */
+    .settings-group-card {
+      background: var(--bg-card);
+      border-radius: 14px;
+      padding: 6px 14px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+      margin-bottom: 12px;
+    }
+    .settings-group-header {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 10px 0 6px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .settings-item-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border-light);
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .settings-item-row:last-child {
+      border-bottom: none;
+    }
+    .settings-left-cluster {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .settings-icon-circle {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .settings-icon-circle.blue { background: var(--primary-gradient); }
+    .settings-icon-circle.orange { background: linear-gradient(135deg, #FF9500 0%, #E07A00 100%); }
+    .settings-icon-circle.purple { background: var(--purple-gradient); }
+    .settings-icon-circle.green { background: var(--green-gradient); }
+    .settings-icon-circle.slate { background: linear-gradient(135deg, #64748B 0%, #475569 100%); }
+
+    .settings-item-text {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .settings-item-sub {
+      font-size: 10.5px;
+      color: var(--text-secondary);
+      margin-top: 1px;
+    }
+
+    /* ==========================================================================
+       ANALYTICS CHARTS & METRICS
+       ========================================================================== */
+    .analytics-metric-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .metric-card-box {
+      background: var(--bg-card);
+      border-radius: 12px;
+      padding: 12px;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+    }
+    .metric-card-label {
+      font-size: 10.5px;
+      color: var(--text-secondary);
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .metric-card-value {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin: 3px 0 2px 0;
+    }
+    .metric-card-delta {
+      font-size: 10px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+    .metric-card-delta.positive { color: var(--secondary-green); }
+    .metric-card-delta.neutral { color: var(--primary); }
+
+    /* Visual Hourly Revenue Bars */
+    .hourly-chart-container {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 8px;
+      height: 120px;
+      padding: 12px 6px 4px 6px;
+      background: #F8FAFC;
+      border-radius: 10px;
+      margin: 10px 0 6px 0;
+    }
+
+    .chart-bar-column {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100%;
+      justify-content: flex-end;
+      gap: 4px;
+    }
+
+    .chart-bar-fill {
+      width: 100%;
+      border-radius: 4px 4px 0 0;
+      background: var(--primary-light);
+      position: relative;
+      transition: height 0.6s ease;
+    }
+    .chart-bar-fill.peak {
+      background: var(--primary-gradient);
+    }
+    .chart-bar-fill:hover {
+      opacity: 0.9;
+    }
+
+    .chart-bar-label {
+      font-size: 9px;
+      color: var(--text-secondary);
+      font-weight: 700;
+    }
+
+    /* Leaderboard list */
+    .leaderboard-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border-light);
+      font-size: 12px;
+    }
+    .leaderboard-row:last-child {
+      border-bottom: none;
+    }
+    .rank-badge {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 800;
+      margin-right: 8px;
+    }
+    .rank-1 { background: #FFD700; color: #7A5700; }
+    .rank-2 { background: #E5E5EA; color: #3A3A3C; }
+    .rank-3 { background: #E5A663; color: #58330A; }
+
+    /* Denomination Input Counter Table */
+    .denom-grid-table {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin: 10px 0;
+    }
+    .denom-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #F8FAFC;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border-light);
+    }
+    .denom-val-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .denom-counter-ctrls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .denom-btn {
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+      background: #FFFFFF;
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 13px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .denom-qty-text {
+      font-size: 12px;
+      font-weight: 700;
+      min-width: 22px;
+      text-align: center;
+    }
+
+    /* ==========================================================================
+       PERSISTENT BOTTOM NAVIGATION BAR
        ========================================================================== */
     .bottom-nav-bar {
       position: absolute;
@@ -1229,11 +1488,11 @@
         right: 0 !important;
         width: 100vw !important;
         z-index: 9999 !important;
-        padding-top: env(safe-area-inset-top, 0px) !important;
+        padding-top: max(12px, env(safe-area-inset-top, 12px)) !important;
       }
 
       .app-screen-scroll {
-        padding-top: calc(88px + env(safe-area-inset-top, 0px)) !important;
+        padding-top: calc(56px + env(safe-area-inset-top, 12px)) !important;
         padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px)) !important;
       }
 
@@ -1262,7 +1521,7 @@
   <div class="viewport-controls">
     <div style="display: flex; align-items: center; gap: 8px;">
       <span class="resolution-badge">Mobile Simulation</span>
-      <span>GPasada iOS & Android</span>
+      <span>GPasada Vehicles & Analytics</span>
     </div>
     <div class="scale-btn-group">
       <button class="scale-btn active" id="btn-scale-fit" onclick="setDeviceScale('fit')">Fit</button>
@@ -1282,22 +1541,14 @@
       </div>
 
       <!-- ====================================================================
-           1. PERSISTENT TOP APP BAR (HEADER + STATUS + BRAND ACTIONS)
+           1. PERSISTENT TOP APP BAR
            ==================================================================== -->
       <header class="persistent-top-header" id="app-top-header">
-        <!-- iOS Status Bar with Real-Time Clock -->
-        <div class="ios-top-bar">
-          <span id="live-clock">9:41 AM</span>
-          <div class="top-bar-icons">
-            <i class="fa-solid fa-signal"></i>
-            <i class="fa-solid fa-wifi"></i>
-            <i class="fa-solid fa-battery-full"></i>
-          </div>
-        </div>
-
-        <!-- Dynamic Brand Navigation Bar -->
         <div class="brand-top-nav">
-          <div class="brand-group-title">
+          <div class="brand-group-title" onclick="switchNavTab('home')">
+            <button class="header-back-btn" id="header-back-btn" onclick="switchNavTab('home'); event.stopPropagation();" title="Back to Dashboard">
+              <i class="fa-solid fa-arrow-left"></i>
+            </button>
             <div class="brand-logo-circle" id="header-logo-icon">🚐</div>
             <div class="brand-text">
               <span id="header-title-text">GPasada</span>
@@ -1320,7 +1571,7 @@
       <div class="app-screen-scroll" id="scroll-container">
 
         <!-- ====================================================================
-             TAB 1: 🏠 HOME (DASHBOARD)
+             VIEW 1: 🏠 HOME (CONSOLIDATED DASHBOARD)
              ==================================================================== -->
         <div id="tab-home-content" class="tab-view-content active">
 
@@ -1344,85 +1595,85 @@
               </div>
 
               <div class="amount-display-number">
-                <span style="font-size: 22px; font-weight: 700; margin-right: 2px;">₱</span><span id="balance-display-text">8,400.00</span>
+                <span style="font-size: 22px; font-weight: 700; margin-right: 2px;">₱</span><span id="balance-display-text">9,850.00</span>
               </div>
 
               <div class="balance-subtext-info">
-                Across 3 active units · 8 completed trips
+                Across 5 registered vehicles · 24 completed trips
               </div>
 
               <!-- Target Progress Bar -->
               <div class="target-progress-box">
                 <div class="target-box-header-row">
-                  <span>Daily Target: ₱10,000</span>
-                  <span>84% of daily target</span>
+                  <span>Daily Target: ₱11,000</span>
+                  <span>89.5% of daily target</span>
                 </div>
                 <div class="target-bar-track">
-                  <div class="target-bar-filled"></div>
+                  <div class="target-bar-filled" style="width: 89.5%;"></div>
                 </div>
               </div>
 
               <!-- Breakdown Pill -->
               <div class="split-breakdown-pill">
                 <div style="display:flex; align-items:center; gap:6px;">
-                  <span>💵 Cash: <strong id="cash-breakdown-val">₱6,250</strong></span>
+                  <span>💵 Cash: <strong id="cash-breakdown-val">₱7,400</strong></span>
                 </div>
                 <div class="split-divider-line"></div>
                 <div style="display:flex; align-items:center; gap:6px;">
-                  <span>💳 GCash: <strong id="gcash-breakdown-val">₱2,150</strong></span>
+                  <span>💳 GCash: <strong id="gcash-breakdown-val">₱2,450</strong></span>
                 </div>
               </div>
             </section>
           </div>
 
-          <!-- QUICK ACTION GRID (8 ITEMS) -->
+          <!-- QUICK ACTION GRID (8 DEDICATED WORKING PAGES) -->
           <section class="section-stage" style="padding-top: 14px; padding-bottom: 6px;">
             <div class="grid-container-card">
               <div class="actions-grid-8">
                 <!-- 1. Dashboard -->
-                <button class="action-btn-item" onclick="triggerToast('Dashboard: Live Fleet Overview', '📊')">
+                <button class="action-btn-item" onclick="switchNavTab('home')">
                   <div class="circle-icon-wrap">
                     <i class="fa-solid fa-grip"></i>
                   </div>
                   <span class="action-label-text">Dashboard</span>
                 </button>
-                <!-- 2. Units -->
+                <!-- 2. Vehicles -->
                 <button class="action-btn-item" onclick="switchNavTab('fleet')">
                   <div class="circle-icon-wrap">
-                    <i class="fa-solid fa-truck"></i>
+                    <i class="fa-solid fa-van-shuttle"></i>
                   </div>
-                  <span class="action-label-text">Units</span>
+                  <span class="action-label-text">Vehicles</span>
                 </button>
                 <!-- 3. Drivers -->
-                <button class="action-btn-item" onclick="triggerToast('Drivers: 3 on-duty drivers assigned', '👨✈️')">
+                <button class="action-btn-item" onclick="switchNavTab('drivers')">
                   <div class="circle-icon-wrap">
                     <i class="fa-solid fa-user"></i>
                   </div>
                   <span class="action-label-text">Drivers</span>
                 </button>
                 <!-- 4. Remit -->
-                <button class="action-btn-item" onclick="triggerToast('Remittance: ₱5,600 received at desk', '💰')">
+                <button class="action-btn-item" onclick="switchNavTab('remit')">
                   <div class="circle-icon-wrap">
                     <i class="fa-solid fa-hand-holding-dollar"></i>
                   </div>
                   <span class="action-label-text">Remit</span>
                 </button>
                 <!-- 5. Trip Log -->
-                <button class="action-btn-item" onclick="triggerToast('Trip Log: 8 completed shift trips', '📋')">
+                <button class="action-btn-item" onclick="switchNavTab('triplog')">
                   <div class="circle-icon-wrap">
                     <i class="fa-solid fa-clipboard-list"></i>
                   </div>
                   <span class="action-label-text">Trip Log</span>
                 </button>
                 <!-- 6. Expenses -->
-                <button class="action-btn-item" onclick="triggerToast('Expenses: Fuel & boundary ledger', '🧾')">
+                <button class="action-btn-item" onclick="switchNavTab('expenses')">
                   <div class="circle-icon-wrap">
                     <i class="fa-solid fa-receipt"></i>
                   </div>
                   <span class="action-label-text">Expenses</span>
                 </button>
                 <!-- 7. Analytics -->
-                <button class="action-btn-item" onclick="switchNavTab('reports')">
+                <button class="action-btn-item" onclick="switchNavTab('analytics')">
                   <div class="circle-icon-wrap">
                     <i class="fa-solid fa-chart-line"></i>
                   </div>
@@ -1436,27 +1687,27 @@
                   <span class="action-label-text" id="more-label-text">More</span>
                 </button>
 
-                <!-- Expanded Additional Tools -->
+                <!-- Expanded Additional Working Tools -->
                 <div class="more-extra-grid" id="extra-tools-grid">
-                  <button class="action-btn-item" onclick="triggerToast('Coop QR: Passenger QR Generator', '📱')">
+                  <button class="action-btn-item" onclick="triggerToast('Coop QR: Dynamic passenger fare QR active', '📱')">
                     <div class="circle-icon-wrap">
                       <i class="fa-solid fa-qrcode"></i>
                     </div>
                     <span class="action-label-text">Coop QR</span>
                   </button>
-                  <button class="action-btn-item" onclick="triggerToast('Fuel Subsidy: Government Fuel Card Tracker', '⛽')">
+                  <button class="action-btn-item" onclick="switchNavTab('expenses')">
                     <div class="circle-icon-wrap">
                       <i class="fa-solid fa-gas-pump"></i>
                     </div>
                     <span class="action-label-text">Fuel Sub</span>
                   </button>
-                  <button class="action-btn-item" onclick="triggerToast('Maintenance: Unit PMS Checkup Schedule', '🔧')">
+                  <button class="action-btn-item" onclick="switchNavTab('fleet')">
                     <div class="circle-icon-wrap">
                       <i class="fa-solid fa-wrench"></i>
                     </div>
                     <span class="action-label-text">Service</span>
                   </button>
-                  <button class="action-btn-item" onclick="triggerToast('Coop Vault: Direct Landbank Account Deposit', '🏦')">
+                  <button class="action-btn-item" onclick="switchNavTab('profile')">
                     <div class="circle-icon-wrap">
                       <i class="fa-solid fa-building-columns"></i>
                     </div>
@@ -1467,23 +1718,29 @@
             </div>
           </section>
 
-          <!-- LIVE COLLECTION DASHBOARD -->
+          <!-- LIVE VEHICLE COLLECTIONS -->
           <section class="section-stage" style="padding-top: 6px; padding-bottom: 6px;">
             <div class="section-title-row">
               <div>
                 <h3 class="section-header-title">Today's Collections</h3>
-                <span class="section-header-date">June 15, 2026</span>
+                <span class="section-header-date">Shift A · Live Duty</span>
               </div>
-              <a class="view-all-action" onclick="triggerToast('Viewing all collections', '🔍')">View All →</a>
+              <a class="view-all-action" onclick="switchNavTab('fleet')">View Vehicles →</a>
             </div>
 
             <div class="driver-cards-stack">
-              <!-- CARD 1 - REMITTED (Green Accent #34C759) -->
-              <article class="driver-accent-card remitted" onclick="triggerToast('R. Santos: Remittance verified (Cash: ₱2,100, GCash: ₱700)', '✅')">
+              <!-- VEHICLE 1 - JEEPNEY 1 (REMITTED) -->
+              <article class="driver-accent-card remitted" onclick="switchNavTab('fleet')">
                 <div class="driver-card-header-row">
-                  <div>
-                    <h4 class="driver-name-title">R. Santos <span class="unit-tag-pill">Unit #021</span></h4>
-                    <p class="route-subtext">Baclaran - Pasay</p>
+                  <div class="driver-left-info">
+                    <img src="assets/images/drivers/driver-1-santos.png" class="driver-avatar-mini" alt="R. Santos" />
+                    <div>
+                      <h4 class="driver-name-title">
+                        Jeepney 1 <span class="unit-tag-pill">#021</span>
+                        <span class="plate-number-badge">ABC-1021</span>
+                      </h4>
+                      <p class="route-subtext">Driver: <strong>R. Santos</strong> · Baclaran - Pasay</p>
+                    </div>
                   </div>
                   <span class="status-badge-tag remitted">✅ Remitted</span>
                 </div>
@@ -1505,16 +1762,59 @@
 
                 <div class="driver-card-footer-action">
                   <span>75% Cash · 25% GCash</span>
-                  <span style="color: var(--primary); font-weight: 700;">Tap to view details →</span>
+                  <span style="color: var(--primary); font-weight: 700;">View Vehicle details →</span>
                 </div>
               </article>
 
-              <!-- CARD 2 - PENDING (Orange Accent #FF9500) -->
-              <article class="driver-accent-card pending" onclick="triggerToast('M. Reyes: Shift ended, pending terminal cashier drop-off', '⏳')">
+              <!-- VEHICLE 5 - TRICYCLE 1 (REMITTED) -->
+              <article class="driver-accent-card remitted" onclick="switchNavTab('fleet')">
                 <div class="driver-card-header-row">
-                  <div>
-                    <h4 class="driver-name-title">M. Reyes <span class="unit-tag-pill">Unit #022</span></h4>
-                    <p class="route-subtext">Baclaran - Pasay</p>
+                  <div class="driver-left-info">
+                    <img src="assets/images/drivers/driver-5-dimaculangan.png" class="driver-avatar-mini" alt="E. Dimaculangan" />
+                    <div>
+                      <h4 class="driver-name-title">
+                        Tricycle 1 <span class="unit-tag-pill">#T-005</span>
+                        <span class="plate-number-badge">8812-TC</span>
+                      </h4>
+                      <p class="route-subtext">Driver: <strong>E. Dimaculangan</strong> · Pasay TODA Feeder</p>
+                    </div>
+                  </div>
+                  <span class="status-badge-tag remitted">✅ Remitted</span>
+                </div>
+
+                <div class="driver-sub-boxes">
+                  <div class="fare-box-pill cash">💵 Cash: ₱1,150</div>
+                  <div class="fare-box-pill gcash">💳 GCash: ₱300</div>
+                </div>
+
+                <div class="driver-total-line">
+                  <span style="color: var(--text-secondary); font-size: 11px;">TOTAL FARES:</span>
+                  <span style="font-size: 14px; color: var(--primary); font-weight: 800;">₱1,450</span>
+                </div>
+
+                <div class="ratio-bar-mini">
+                  <div class="bar-cash" style="width: 79%;" title="79% Cash"></div>
+                  <div class="bar-gcash" style="width: 21%;" title="21% GCash"></div>
+                </div>
+
+                <div class="driver-card-footer-action">
+                  <span>16 Trips · Pasay TODA</span>
+                  <span style="color: var(--primary); font-weight: 700;">View Tricycle details →</span>
+                </div>
+              </article>
+
+              <!-- VEHICLE 2 - MODERN JEEPNEY 2 (PENDING) -->
+              <article class="driver-accent-card pending" onclick="switchNavTab('remit')">
+                <div class="driver-card-header-row">
+                  <div class="driver-left-info">
+                    <img src="assets/images/drivers/driver-2-reyes.png" class="driver-avatar-mini" alt="M. Reyes" />
+                    <div>
+                      <h4 class="driver-name-title">
+                        Modern PUV 2 <span class="unit-tag-pill">#022</span>
+                        <span class="plate-number-badge">NDB-4422</span>
+                      </h4>
+                      <p class="route-subtext">Driver: <strong>M. Reyes</strong> · Baclaran - Pasay</p>
+                    </div>
                   </div>
                   <span class="status-badge-tag pending">⏳ Pending</span>
                 </div>
@@ -1536,16 +1836,22 @@
 
                 <div class="driver-card-footer-action">
                   <span>66% Cash · 34% GCash</span>
-                  <span style="color: var(--primary); font-weight: 700;">Tap to view details →</span>
+                  <span style="color: var(--warning-orange); font-weight: 700;">Open Remittance Desk →</span>
                 </div>
               </article>
 
-              <!-- CARD 3 - REVIEW REQUIRED (Red Accent #FF3B30) -->
-              <article class="driver-accent-card review" onclick="triggerToast('J. Cruz: ₱100 discrepancy flagged for review', '⚠️')">
+              <!-- VEHICLE 3 - MODERN JEEPNEY 3 (REVIEW) -->
+              <article class="driver-accent-card review" onclick="switchNavTab('remit')">
                 <div class="driver-card-header-row">
-                  <div>
-                    <h4 class="driver-name-title">J. Cruz <span class="unit-tag-pill">Unit #023</span></h4>
-                    <p class="route-subtext">Baclaran - Pasay</p>
+                  <div class="driver-left-info">
+                    <img src="assets/images/drivers/driver-3-cruz.png" class="driver-avatar-mini" alt="J. Cruz" />
+                    <div>
+                      <h4 class="driver-name-title">
+                        Modern PUV 3 <span class="unit-tag-pill">#023</span>
+                        <span class="plate-number-badge">NBF-9823</span>
+                      </h4>
+                      <p class="route-subtext">Driver: <strong>J. Cruz</strong> · Baclaran - Pasay</p>
+                    </div>
                   </div>
                   <span class="status-badge-tag review">⚠️ Review</span>
                 </div>
@@ -1566,8 +1872,8 @@
                 </div>
 
                 <div class="driver-card-footer-action">
-                  <span style="color: var(--danger-red); font-weight: 700;">⚠️ ₱100 discrepancy - Review</span>
-                  <span style="color: var(--primary); font-weight: 700;">Tap to view details →</span>
+                  <span style="color: var(--danger-red); font-weight: 700;">⚠️ ₱100 discrepancy flag</span>
+                  <span style="color: var(--primary); font-weight: 700;">Resolve now →</span>
                 </div>
               </article>
             </div>
@@ -1576,12 +1882,12 @@
             <div class="summary-aggregate-card">
               <div class="summary-head-row">
                 <div>
-                  <div style="font-size: 10.5px; color: var(--text-secondary); font-weight: 700; text-transform: uppercase;">Consolidated Total</div>
-                  <div class="summary-lead-text">Total Collections: ₱8,400</div>
+                  <div style="font-size: 10.5px; color: var(--text-secondary); font-weight: 700; text-transform: uppercase;">Consolidated Fleet Total</div>
+                  <div class="summary-lead-text">Total Collections: ₱9,850</div>
                 </div>
-                <button class="download-outline-btn" onclick="triggerToast('📥 Report downloaded successfully', '📥')">
-                  <i class="fa-solid fa-download"></i>
-                  <span>Download Report</span>
+                <button class="download-outline-btn" onclick="switchNavTab('analytics')">
+                  <i class="fa-solid fa-chart-pie"></i>
+                  <span>Analytics</span>
                 </button>
               </div>
 
@@ -1589,21 +1895,21 @@
               <div class="progress-track-block">
                 <div class="progress-bar-row">
                   <div class="progress-bar-header">
-                    <span style="color: var(--secondary-green);">💵 Cash: ₱6,250</span>
-                    <span style="color: var(--secondary-green);">74%</span>
+                    <span style="color: var(--secondary-green);">💵 Cash: ₱7,400</span>
+                    <span style="color: var(--secondary-green);">75.1%</span>
                   </div>
                   <div class="progress-outer-track">
-                    <div class="progress-fill-seg cash"></div>
+                    <div class="progress-fill-seg cash" style="width: 75.1%;"></div>
                   </div>
                 </div>
 
                 <div class="progress-bar-row">
                   <div class="progress-bar-header">
-                    <span style="color: var(--primary);">💳 GCash: ₱2,150</span>
-                    <span style="color: var(--primary);">26%</span>
+                    <span style="color: var(--primary);">💳 GCash: ₱2,450</span>
+                    <span style="color: var(--primary);">24.9%</span>
                   </div>
                   <div class="progress-outer-track">
-                    <div class="progress-fill-seg gcash"></div>
+                    <div class="progress-fill-seg gcash" style="width: 24.9%;"></div>
                   </div>
                 </div>
               </div>
@@ -1611,7 +1917,7 @@
               <!-- Status Breakdown Chips -->
               <div class="summary-chips-grid">
                 <div class="summary-chip-pill" style="color: var(--secondary-green);">
-                  ✅ Remitted: ₱5,600
+                  ✅ Remitted: ₱7,050
                 </div>
                 <div class="summary-chip-pill" style="color: var(--warning-orange);">
                   ⏳ Pending: ₱2,700
@@ -1623,16 +1929,16 @@
             </div>
           </section>
 
-          <!-- QUICK ACTIONS SECTION (HORIZONTAL SCROLL) -->
+          <!-- QUICK ACTIONS CAROUSEL -->
           <section class="section-stage" style="padding-top: 4px; padding-bottom: 8px;">
             <div class="section-title-row">
-              <h3 class="section-header-title">Quick Actions</h3>
-              <span class="section-header-date">Operations</span>
+              <h3 class="section-header-title">Operations Desk</h3>
+              <span class="section-header-date">Fast Workflow</span>
             </div>
 
             <div class="horizontal-scroll-deck">
               <!-- CARD A: Driver Remittance -->
-              <div class="feature-deck-card" onclick="triggerToast('Driver Remittance: Opening Shift Cash Declaration', '👨✈️')">
+              <div class="feature-deck-card" onclick="switchNavTab('remit')">
                 <div>
                   <div class="deck-top-cluster">
                     <div class="deck-gradient-circle blue">
@@ -1643,16 +1949,16 @@
                       <span style="font-size: 10px; color: var(--text-secondary);">Declaration Desk</span>
                     </div>
                   </div>
-                  <h5 style="font-size: 11.5px; font-weight: 700; margin-bottom: 3px;">End-of-Shift Declaration</h5>
-                  <p class="deck-desc-text">Record driver cash declarations</p>
+                  <h5 style="font-size: 11.5px; font-weight: 700; margin-bottom: 3px;">End-of-Shift Handover</h5>
+                  <p class="deck-desc-text">Open cash denomination counter</p>
                 </div>
                 <div class="deck-arrow-link">
-                  <span>→</span>
+                  <span>Open Desk →</span>
                 </div>
               </div>
 
               <!-- CARD B: Smart Budget -->
-              <div class="feature-deck-card" onclick="triggerToast('Smart Budget: Driver ₱20K | Fuel ₱15K | Maint ₱5K', '📊')">
+              <div class="feature-deck-card" onclick="switchNavTab('expenses')">
                 <div>
                   <div class="deck-top-cluster">
                     <div class="deck-gradient-circle green">
@@ -1665,161 +1971,863 @@
                   </div>
                   <h5 style="font-size: 11.5px; font-weight: 700; margin-bottom: 3px;">Today's Recommended</h5>
                   <div class="deck-preview-box">
-                    Driver ₱20K | Fuel ₱15K | Maint ₱5K
+                    Driver ₱22K | Fuel ₱16K | Maint ₱6K
                   </div>
                 </div>
                 <div class="deck-arrow-link" style="color: var(--secondary-green);">
-                  <span>→</span>
+                  <span>View Expenses →</span>
                 </div>
               </div>
 
               <!-- CARD C: GCash Collections -->
-              <div class="feature-deck-card" onclick="triggerToast('GCash Collections: Streaming Real-time Payments', '💳')">
+              <div class="feature-deck-card" onclick="switchNavTab('triplog')">
                 <div>
                   <div class="deck-top-cluster">
                     <div class="deck-gradient-circle purple">
                       <i class="fa-solid fa-mobile-screen-button"></i>
                     </div>
                     <div>
-                      <h4 class="deck-title-main">GCash Collections</h4>
-                      <span style="font-size: 10px; color: #AF52DE; font-weight: 700;">Digital Payments</span>
+                      <h4 class="deck-title-main">Trip Log & Passenger Volume</h4>
+                      <span style="font-size: 10px; color: #AF52DE; font-weight: 700;">Live Dispatch</span>
                     </div>
                   </div>
-                  <h5 style="font-size: 11.5px; font-weight: 700; margin-bottom: 3px;">Digital Fare Transactions</h5>
-                  <p class="deck-desc-text">View real-time GCash payments</p>
+                  <h5 style="font-size: 11.5px; font-weight: 700; margin-bottom: 3px;">24 Completed Trips</h5>
+                  <p class="deck-desc-text">Jeepneys & TODA Feeder</p>
                 </div>
                 <div class="deck-arrow-link" style="color: #AF52DE;">
-                  <span>→</span>
+                  <span>Trip Ledger →</span>
                 </div>
               </div>
             </div>
           </section>
 
-          <!-- RECENT ACTIVITY -->
+          <!-- RECENT REMITTANCES -->
           <section class="section-stage" style="padding-top: 4px; padding-bottom: 12px;">
             <div class="section-title-row">
               <h3 class="section-header-title">Recent Remittances</h3>
-              <a class="view-all-action" onclick="triggerToast('Viewing full remittance history', '📋')">View All →</a>
+              <a class="view-all-action" onclick="switchNavTab('remit')">Audit Desk →</a>
             </div>
 
             <div class="history-card-box">
-              <!-- Item 1: R. Santos -->
-              <div class="history-item-row" onclick="triggerToast('R. Santos: Remitted ₱2,100 at 2:30 PM', '✅')">
+              <div class="history-item-row" onclick="triggerToast('Jeepney 1 (R. Santos): Remitted ₱2,100 cash + ₱700 GCash', '✅')">
                 <div class="history-meta-left">
-                  <span class="history-icon-emoji">✅</span>
+                  <img src="assets/images/drivers/driver-1-santos.png" class="driver-avatar-mini" alt="R. Santos" />
                   <div>
-                    <div class="history-driver-name">R. Santos</div>
-                    <div class="history-driver-time">2:30 PM · Unit #021</div>
-                  </div>
-                </div>
-                <div class="history-meta-right">
-                  <div class="history-amount-num">₱2,100</div>
-                  <span class="history-status-badge-text remitted">Remitted</span>
-                </div>
-              </div>
-
-              <!-- Item 2: M. Reyes -->
-              <div class="history-item-row" onclick="triggerToast('M. Reyes: Pending ₱2,800 collection envelope', '⏳')">
-                <div class="history-meta-left">
-                  <span class="history-icon-emoji">⏳</span>
-                  <div>
-                    <div class="history-driver-name">M. Reyes</div>
-                    <div class="history-driver-time">1:15 PM · Unit #022</div>
+                    <div class="history-driver-name">Jeepney 1 · ABC-1021 (R. Santos)</div>
+                    <div class="history-driver-time">2:30 PM · Unit #021 · 3 Trips</div>
                   </div>
                 </div>
                 <div class="history-meta-right">
                   <div class="history-amount-num">₱2,800</div>
-                  <span class="history-status-badge-text pending">Pending</span>
+                  <span class="history-status-badge-text remitted">Remitted</span>
                 </div>
               </div>
 
-              <!-- Item 3: J. Cruz -->
-              <div class="history-item-row" onclick="triggerToast('J. Cruz: Review required for ₱100 discrepancy', '⚠️')">
+              <div class="history-item-row" onclick="triggerToast('Tricycle 1 (E. Dimaculangan): Remitted ₱1,150 cash + ₱300 GCash', '✅')">
                 <div class="history-meta-left">
-                  <span class="history-icon-emoji">⚠️</span>
+                  <img src="assets/images/drivers/driver-5-dimaculangan.png" class="driver-avatar-mini" alt="E. Dimaculangan" />
                   <div>
-                    <div class="history-driver-name">J. Cruz</div>
-                    <div class="history-driver-time">11:45 AM · Unit #023</div>
+                    <div class="history-driver-name">Tricycle 1 · 8812-TC (E. Dimaculangan)</div>
+                    <div class="history-driver-time">2:10 PM · Unit #T-005 · 16 Trips</div>
                   </div>
                 </div>
                 <div class="history-meta-right">
-                  <div class="history-amount-num" style="color: var(--danger-red);">₱2,800</div>
-                  <span class="history-status-badge-text review">Review Required</span>
+                  <div class="history-amount-num">₱1,450</div>
+                  <span class="history-status-badge-text remitted">Remitted</span>
+                </div>
+              </div>
+
+              <div class="history-item-row" onclick="switchNavTab('remit')">
+                <div class="history-meta-left">
+                  <img src="assets/images/drivers/driver-2-reyes.png" class="driver-avatar-mini" alt="M. Reyes" />
+                  <div>
+                    <div class="history-driver-name">Modern PUV 2 · NDB-4422 (M. Reyes)</div>
+                    <div class="history-driver-time">1:15 PM · Unit #022 · 3 Trips</div>
+                  </div>
+                </div>
+                <div class="history-meta-right">
+                  <div class="history-amount-num">₱2,800</div>
+                  <span class="history-status-badge-text pending">Pending Handover</span>
                 </div>
               </div>
             </div>
 
-            <!-- SUPPORT FOOTER -->
             <div class="support-footer-banner" onclick="triggerToast('Connecting to GPasada Support: (02) 8123-4567', '📞')">
               <i class="fa-solid fa-phone-volume"></i>
-              <span>Need help? Tap here to contact GPasada Support</span>
+              <span>Need assistance? Contact GPasada Cooperative Support</span>
             </div>
           </section>
 
-        </div> <!-- End Tab 1 Home Content -->
+        </div> <!-- End View 1 Home -->
 
 
         <!-- ====================================================================
-             TAB 2: 🚐 FLEET (UNITS & DRIVERS)
+             VIEW 2: 📈 RICH ANALYTICS & INSIGHTS
              ==================================================================== -->
-        <div id="tab-fleet-content" class="tab-view-content">
-
-          <!-- Sub-bar Ribbon for Fleet -->
+        <div id="tab-analytics-content" class="tab-view-content">
           <div class="coop-banner-ribbon">
             <div>
-              <span class="live-pulse-dot"></span>
-              <span>Active Route: Baclaran - Pasay</span>
+              <i class="fa-solid fa-chart-line" style="margin-right:6px;"></i>
+              <span>Cooperative Revenue & Analytics</span>
             </div>
-            <span>3 of 3 On Duty</span>
+            <span>June 15, 2026</span>
           </div>
 
           <div class="generic-list-stack">
-            <!-- Unit 021 -->
-            <div class="generic-box-card" onclick="triggerToast('Unit #021 - Toyota Grandia: All diagnostics nominal', '🚐')">
-              <div class="fleet-card-top-row">
-                <span class="fleet-unit-title">#021 - Toyota Grandia</span>
-                <span class="status-badge-tag remitted">Active ✅</span>
+            <!-- 4 Key KPI Cards -->
+            <div class="analytics-metric-grid">
+              <div class="metric-card-box">
+                <div class="metric-card-label">Revenue Today</div>
+                <div class="metric-card-value">₱9,850</div>
+                <div class="metric-card-delta positive">
+                  <i class="fa-solid fa-arrow-trend-up"></i> +17.3% vs yesterday
+                </div>
               </div>
-              <div class="fleet-driver-info">
-                Driver: <strong>R. Santos</strong> · Route: Baclaran - Pasay
+              <div class="metric-card-box">
+                <div class="metric-card-label">Passengers Hauled</div>
+                <div class="metric-card-value">176</div>
+                <div class="metric-card-delta positive">
+                  <i class="fa-solid fa-users"></i> PUV + TODA Feeder
+                </div>
               </div>
-              <div class="fleet-collection-row">
-                <span>Today's Collection:</span>
-                <span class="fleet-amount-bold">₱2,800.00</span>
+              <div class="metric-card-box">
+                <div class="metric-card-label">GCash Share</div>
+                <div class="metric-card-value">24.9%</div>
+                <div class="metric-card-delta neutral">
+                  <i class="fa-solid fa-mobile-screen"></i> ₱2,450 cashless
+                </div>
+              </div>
+              <div class="metric-card-box">
+                <div class="metric-card-label">Target Completion</div>
+                <div class="metric-card-value">89.5%</div>
+                <div class="metric-card-delta positive">
+                  <i class="fa-solid fa-bullseye"></i> ₱1,150 to ₱11K goal
+                </div>
               </div>
             </div>
 
-            <!-- Unit 022 -->
-            <div class="generic-box-card" onclick="triggerToast('Unit #022 - Toyota Grandia: En route to terminal', '🚐')">
-              <div class="fleet-card-top-row">
-                <span class="fleet-unit-title">#022 - Toyota Grandia</span>
-                <span class="status-badge-tag remitted">Active ✅</span>
+            <!-- Hourly Peak Demand Revenue Chart -->
+            <div class="generic-box-card">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <strong style="font-size:13.5px;">⏰ Hourly Revenue Distribution</strong>
+                <span style="font-size:10px; color:var(--primary); font-weight:700; background:var(--primary-light); padding:2px 8px; border-radius:4px;">Peak: 6-9 AM & 4-7 PM</span>
               </div>
-              <div class="fleet-driver-info">
-                Driver: <strong>M. Reyes</strong> · Route: Baclaran - Pasay
+              
+              <div class="hourly-chart-container">
+                <div class="chart-bar-column">
+                  <div class="chart-bar-fill peak" style="height: 85%;" title="6-8 AM: ₱2,800"></div>
+                  <span class="chart-bar-label">6AM</span>
+                </div>
+                <div class="chart-bar-column">
+                  <div class="chart-bar-fill peak" style="height: 95%;" title="8-10 AM: ₱3,100"></div>
+                  <span class="chart-bar-label">8AM</span>
+                </div>
+                <div class="chart-bar-column">
+                  <div class="chart-bar-fill" style="height: 45%;" title="10-12 PM: ₱1,300"></div>
+                  <span class="chart-bar-label">10AM</span>
+                </div>
+                <div class="chart-bar-column">
+                  <div class="chart-bar-fill" style="height: 60%;" title="12-2 PM: ₱1,650"></div>
+                  <span class="chart-bar-label">12PM</span>
+                </div>
+                <div class="chart-bar-column">
+                  <div class="chart-bar-fill" style="height: 50%;" title="2-4 PM: ₱1,400"></div>
+                  <span class="chart-bar-label">2PM</span>
+                </div>
+                <div class="chart-bar-column">
+                  <div class="chart-bar-fill peak" style="height: 90%;" title="4-6 PM: ₱2,900"></div>
+                  <span class="chart-bar-label">4PM</span>
+                </div>
+                <div class="chart-bar-column">
+                  <div class="chart-bar-fill" style="height: 35%;" title="6-8 PM: ₱1,100"></div>
+                  <span class="chart-bar-label">6PM</span>
+                </div>
               </div>
-              <div class="fleet-collection-row">
-                <span>Today's Collection:</span>
-                <span class="fleet-amount-bold">₱2,800.00</span>
+              <div style="font-size:10.5px; color:var(--text-secondary); text-align:center;">
+                Combined revenue from Modern PUVs, Traditional Jeepneys, and TODA Tricycles.
               </div>
             </div>
 
-            <!-- Unit 023 -->
-            <div class="generic-box-card" onclick="triggerToast('Unit #023 - Toyota Grandia: Cashier review flagged', '⚠️')">
-              <div class="fleet-card-top-row">
-                <span class="fleet-unit-title">#023 - Toyota Grandia</span>
+            <!-- Vehicle Performance Leaderboard -->
+            <div class="generic-box-card">
+              <strong style="font-size:13.5px; display:block; margin-bottom:8px;">🏆 Vehicle Performance Leaderboard</strong>
+              <div class="leaderboard-row">
+                <div style="display:flex; align-items:center;">
+                  <span class="rank-badge rank-1">1</span>
+                  <div>
+                    <strong>Jeepney 1 · ABC-1021</strong>
+                    <div style="font-size:10.5px; color:var(--text-secondary);">R. Santos · 3 Trips · 100% On-time</div>
+                  </div>
+                </div>
+                <div style="text-align:right;">
+                  <strong style="color:var(--primary);">₱2,800.00</strong>
+                  <div style="font-size:10px; color:var(--secondary-green); font-weight:700;">★ 4.9 Rating</div>
+                </div>
+              </div>
+              <div class="leaderboard-row">
+                <div style="display:flex; align-items:center;">
+                  <span class="rank-badge rank-2">2</span>
+                  <div>
+                    <strong>Modern PUV 2 · NDB-4422</strong>
+                    <div style="font-size:10.5px; color:var(--text-secondary);">M. Reyes · 3 Trips · 98% On-time</div>
+                  </div>
+                </div>
+                <div style="text-align:right;">
+                  <strong style="color:var(--primary);">₱2,800.00</strong>
+                  <div style="font-size:10px; color:var(--secondary-green); font-weight:700;">★ 4.8 Rating</div>
+                </div>
+              </div>
+              <div class="leaderboard-row">
+                <div style="display:flex; align-items:center;">
+                  <span class="rank-badge rank-3">3</span>
+                  <div>
+                    <strong>Tricycle 1 · 8812-TC</strong>
+                    <div style="font-size:10.5px; color:var(--text-secondary);">E. Dimaculangan · 16 Feeder Trips</div>
+                  </div>
+                </div>
+                <div style="text-align:right;">
+                  <strong style="color:var(--primary);">₱1,450.00</strong>
+                  <div style="font-size:10px; color:var(--secondary-green); font-weight:700;">★ 4.9 Rating</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Export Financial Report -->
+            <button class="primary-wide-btn" onclick="triggerToast('📊 Exporting Full Cooperative Audit (CSV/PDF)...', '📥')">
+              <i class="fa-solid fa-file-arrow-down"></i>
+              <span>Download Fiscal Report (PDF & CSV)</span>
+            </button>
+          </div>
+        </div>
+
+
+        <!-- ====================================================================
+             VIEW 3: 👨‍✈️ DRIVERS DIRECTORY (WITH PNG PHOTOS)
+             ==================================================================== -->
+        <div id="tab-drivers-content" class="tab-view-content">
+          <div class="coop-banner-ribbon">
+            <div>
+              <i class="fa-solid fa-id-badge" style="margin-right:6px;"></i>
+              <span>Accredited Cooperative Drivers</span>
+            </div>
+            <span>Shift A & TODA Roster</span>
+          </div>
+
+          <div class="generic-list-stack">
+            <!-- Driver 1: R. Santos -->
+            <div class="generic-box-card">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px;">
+                <div style="display:flex; align-items:center; gap:12px;">
+                  <img src="assets/images/drivers/driver-1-santos.png" class="driver-avatar-lg" alt="Rodrigo Santos" />
+                  <div>
+                    <h3 style="font-size:15px; font-weight:800;">Rodrigo Santos</h3>
+                    <div style="font-size:11px; color:var(--text-secondary);">Assigned: <strong>Jeepney 1 (ABC-1021)</strong></div>
+                    <div style="font-size:10px; color:var(--primary); font-weight:700; margin-top:2px;">Lic: N02-14-089231 (Exp: 2028)</div>
+                  </div>
+                </div>
+                <span class="status-badge-tag remitted">Remitted ✅</span>
+              </div>
+              <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:6px; background:#F8FAFC; padding:8px; border-radius:8px; text-align:center; margin-bottom:8px; font-size:11px;">
+                <div>
+                  <div style="color:var(--text-secondary); font-size:9.5px; font-weight:700;">UNIT</div>
+                  <strong>#021</strong>
+                </div>
+                <div>
+                  <div style="color:var(--text-secondary); font-size:9.5px; font-weight:700;">TRIPS</div>
+                  <strong>3 Completed</strong>
+                </div>
+                <div>
+                  <div style="color:var(--text-secondary); font-size:9.5px; font-weight:700;">FARES</div>
+                  <strong style="color:var(--primary);">₱2,800</strong>
+                </div>
+              </div>
+              <div style="display:flex; gap:8px;">
+                <button class="download-outline-btn" style="flex:1;" onclick="triggerToast('Calling Rodrigo Santos: 0917-882-9912', '📞')">
+                  <i class="fa-solid fa-phone"></i> Call Driver
+                </button>
+                <button class="download-outline-btn" style="flex:1;" onclick="switchNavTab('triplog')">
+                  <i class="fa-solid fa-clipboard-list"></i> Shift Log
+                </button>
+              </div>
+            </div>
+
+            <!-- Driver 5: E. Dimaculangan (Tricycle) -->
+            <div class="generic-box-card">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px;">
+                <div style="display:flex; align-items:center; gap:12px;">
+                  <img src="assets/images/drivers/driver-5-dimaculangan.png" class="driver-avatar-lg" alt="Efren Dimaculangan" />
+                  <div>
+                    <h3 style="font-size:15px; font-weight:800;">Efren Dimaculangan</h3>
+                    <div style="font-size:11px; color:var(--text-secondary);">Assigned: <strong>Tricycle 1 (8812-TC)</strong></div>
+                    <div style="font-size:10px; color:var(--secondary-green); font-weight:700; margin-top:2px;">Pasay TODA #162 · Franchise Active</div>
+                  </div>
+                </div>
+                <span class="status-badge-tag remitted">Remitted ✅</span>
+              </div>
+              <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:6px; background:#F8FAFC; padding:8px; border-radius:8px; text-align:center; margin-bottom:8px; font-size:11px;">
+                <div>
+                  <div style="color:var(--text-secondary); font-size:9.5px; font-weight:700;">UNIT</div>
+                  <strong>#T-005</strong>
+                </div>
+                <div>
+                  <div style="color:var(--text-secondary); font-size:9.5px; font-weight:700;">TRIPS</div>
+                  <strong>16 Feeder</strong>
+                </div>
+                <div>
+                  <div style="color:var(--text-secondary); font-size:9.5px; font-weight:700;">FARES</div>
+                  <strong style="color:var(--primary);">₱1,450</strong>
+                </div>
+              </div>
+              <div style="display:flex; gap:8px;">
+                <button class="download-outline-btn" style="flex:1;" onclick="triggerToast('Calling Efren Dimaculangan: 0920-449-8811', '📞')">
+                  <i class="fa-solid fa-phone"></i> Call Driver
+                </button>
+                <button class="download-outline-btn" style="flex:1;" onclick="switchNavTab('triplog')">
+                  <i class="fa-solid fa-clipboard-list"></i> TODA Log
+                </button>
+              </div>
+            </div>
+
+            <!-- Driver 2: M. Reyes -->
+            <div class="generic-box-card">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px;">
+                <div style="display:flex; align-items:center; gap:12px;">
+                  <img src="assets/images/drivers/driver-2-reyes.png" class="driver-avatar-lg" alt="Manuel Reyes" />
+                  <div>
+                    <h3 style="font-size:15px; font-weight:800;">Manuel Reyes</h3>
+                    <div style="font-size:11px; color:var(--text-secondary);">Assigned: <strong>Modern PUV 2 (NDB-4422)</strong></div>
+                    <div style="font-size:10px; color:var(--primary); font-weight:700; margin-top:2px;">Lic: N01-18-044192 (Exp: 2027)</div>
+                  </div>
+                </div>
+                <span class="status-badge-tag pending">Pending ⏳</span>
+              </div>
+              <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:6px; background:#F8FAFC; padding:8px; border-radius:8px; text-align:center; margin-bottom:8px; font-size:11px;">
+                <div>
+                  <div style="color:var(--text-secondary); font-size:9.5px; font-weight:700;">UNIT</div>
+                  <strong>#022</strong>
+                </div>
+                <div>
+                  <div style="color:var(--text-secondary); font-size:9.5px; font-weight:700;">TRIPS</div>
+                  <strong>3 Completed</strong>
+                </div>
+                <div>
+                  <div style="color:var(--text-secondary); font-size:9.5px; font-weight:700;">FARES</div>
+                  <strong style="color:var(--warning-orange);">₱2,800</strong>
+                </div>
+              </div>
+              <div style="display:flex; gap:8px;">
+                <button class="download-outline-btn" style="flex:1;" onclick="triggerToast('Calling Manuel Reyes: 0928-551-2290', '📞')">
+                  <i class="fa-solid fa-phone"></i> Call Driver
+                </button>
+                <button class="download-outline-btn" style="flex:1;" onclick="switchNavTab('remit')">
+                  <i class="fa-solid fa-hand-holding-dollar"></i> Remit Handover
+                </button>
+              </div>
+            </div>
+
+            <!-- Driver 3: J. Cruz -->
+            <div class="generic-box-card">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px;">
+                <div style="display:flex; align-items:center; gap:12px;">
+                  <img src="assets/images/drivers/driver-3-cruz.png" class="driver-avatar-lg" alt="Jonathan Cruz" />
+                  <div>
+                    <h3 style="font-size:15px; font-weight:800;">Jonathan Cruz</h3>
+                    <div style="font-size:11px; color:var(--text-secondary);">Assigned: <strong>Modern PUV 3 (NBF-9823)</strong></div>
+                    <div style="font-size:10px; color:var(--danger-red); font-weight:700; margin-top:2px;">Lic: N03-20-093841 (Exp: 2029)</div>
+                  </div>
+                </div>
                 <span class="status-badge-tag review">Review ⚠️</span>
               </div>
-              <div class="fleet-driver-info">
-                Driver: <strong>J. Cruz</strong> · Route: Baclaran - Pasay
+              <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:6px; background:#F8FAFC; padding:8px; border-radius:8px; text-align:center; margin-bottom:8px; font-size:11px;">
+                <div>
+                  <div style="color:var(--text-secondary); font-size:9.5px; font-weight:700;">UNIT</div>
+                  <strong>#023</strong>
+                </div>
+                <div>
+                  <div style="color:var(--text-secondary); font-size:9.5px; font-weight:700;">TRIPS</div>
+                  <strong>2 Completed</strong>
+                </div>
+                <div>
+                  <div style="color:var(--text-secondary); font-size:9.5px; font-weight:700;">FARES</div>
+                  <strong style="color:var(--danger-red);">₱2,800</strong>
+                </div>
               </div>
-              <div class="fleet-collection-row">
-                <span>Today's Collection:</span>
-                <span class="fleet-amount-bold" style="color: var(--danger-red);">₱2,800.00</span>
+              <div style="display:flex; gap:8px;">
+                <button class="download-outline-btn" style="flex:1;" onclick="triggerToast('Calling Jonathan Cruz: 0998-112-4433', '📞')">
+                  <i class="fa-solid fa-phone"></i> Call Driver
+                </button>
+                <button class="download-outline-btn" style="flex:1;" onclick="switchNavTab('remit')">
+                  <i class="fa-solid fa-triangle-exclamation" style="color:var(--danger-red);"></i> Resolve Disc.
+                </button>
               </div>
             </div>
 
-            <button class="primary-wide-btn" onclick="triggerToast('Opening Unit Dispatch Registration Form', '➕')">
+            <!-- Driver 4: A. Bautista -->
+            <div class="generic-box-card">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px;">
+                <div style="display:flex; align-items:center; gap:12px;">
+                  <img src="assets/images/drivers/driver-4-bautista.png" class="driver-avatar-lg" alt="Antonio Bautista" />
+                  <div>
+                    <h3 style="font-size:15px; font-weight:800;">Antonio Bautista</h3>
+                    <div style="font-size:11px; color:var(--text-secondary);">Assigned: <strong>Jeepney 4 (UAA-7724)</strong></div>
+                    <div style="font-size:10px; color:#64748B; font-weight:700; margin-top:2px;">Lic: N01-15-019922 (Exp: 2028)</div>
+                  </div>
+                </div>
+                <span class="status-badge-tag" style="background:#64748B;">Standby ⏸️</span>
+              </div>
+              <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:6px; background:#F8FAFC; padding:8px; border-radius:8px; text-align:center; margin-bottom:8px; font-size:11px;">
+                <div>
+                  <div style="color:var(--text-secondary); font-size:9.5px; font-weight:700;">UNIT</div>
+                  <strong>#024</strong>
+                </div>
+                <div>
+                  <div style="color:var(--text-secondary); font-size:9.5px; font-weight:700;">SCHEDULE</div>
+                  <strong>4:00 PM</strong>
+                </div>
+                <div>
+                  <div style="color:var(--text-secondary); font-size:9.5px; font-weight:700;">STATUS</div>
+                  <strong style="color:var(--secondary-green);">Ready</strong>
+                </div>
+              </div>
+              <div style="display:flex; gap:8px;">
+                <button class="download-outline-btn" style="flex:1;" onclick="triggerToast('Calling Antonio Bautista: 0918-333-7711', '📞')">
+                  <i class="fa-solid fa-phone"></i> Call Driver
+                </button>
+                <button class="download-outline-btn" style="flex:1;" onclick="triggerToast('Shift B Dispatch assigned to Jeepney 4', '🚐')">
+                  <i class="fa-solid fa-calendar-check"></i> Assign Shift
+                </button>
+              </div>
+            </div>
+
+            <button class="primary-wide-btn" onclick="triggerToast('Opening Driver Onboarding & LTFRB Accreditation Form', '👨✈️')">
+              <i class="fa-solid fa-user-plus"></i>
+              <span>Accredit New Cooperative Driver</span>
+            </button>
+          </div>
+        </div>
+
+
+        <!-- ====================================================================
+             VIEW 4: 💰 REMITTANCE DECLARATION & AUDIT DESK
+             ==================================================================== -->
+        <div id="tab-remit-content" class="tab-view-content">
+          <div class="coop-banner-ribbon">
+            <div>
+              <i class="fa-solid fa-cash-register" style="margin-right:6px;"></i>
+              <span>Cashier Declaration Terminal</span>
+            </div>
+            <span>Audit Desk</span>
+          </div>
+
+          <div class="generic-list-stack">
+            <!-- Active Remittance Session -->
+            <div class="generic-box-card">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                <strong style="font-size:14px;">Select Vehicle Handover</strong>
+                <span style="font-size:10px; font-weight:700; color:var(--primary); background:var(--primary-light); padding:2px 8px; border-radius:4px;">Shift A</span>
+              </div>
+              <div style="display:flex; gap:6px; margin-bottom:12px;">
+                <button class="download-outline-btn" style="flex:1; font-size:11px; background:var(--primary); color:#FFF;" onclick="triggerToast('Selected: Modern PUV 2 · NDB-4422 (M. Reyes)', '🚐')">
+                  Modern PUV 2
+                </button>
+                <button class="download-outline-btn" style="flex:1; font-size:11px;" onclick="triggerToast('Selected: Modern PUV 3 · NBF-9823 (J. Cruz)', '🚐')">
+                  Modern PUV 3
+                </button>
+              </div>
+
+              <!-- Interactive Cash Denomination Calculator -->
+              <span style="font-size:12.5px; font-weight:700; display:block; margin-bottom:4px;">💵 Cash Denomination Count</span>
+              <div class="denom-grid-table">
+                <div class="denom-row">
+                  <span class="denom-val-title">₱1,000 Bills</span>
+                  <div class="denom-counter-ctrls">
+                    <button class="denom-btn" onclick="adjustDenom('1000', -1)">-</button>
+                    <span class="denom-qty-text" id="qty-1000">1</span>
+                    <button class="denom-btn" onclick="adjustDenom('1000', 1)">+</button>
+                    <span style="font-size:11px; font-weight:700; color:var(--primary); min-width:55px; text-align:right;" id="sub-1000">₱1,000</span>
+                  </div>
+                </div>
+                <div class="denom-row">
+                  <span class="denom-val-title">₱500 Bills</span>
+                  <div class="denom-counter-ctrls">
+                    <button class="denom-btn" onclick="adjustDenom('500', -1)">-</button>
+                    <span class="denom-qty-text" id="qty-500">1</span>
+                    <button class="denom-btn" onclick="adjustDenom('500', 1)">+</button>
+                    <span style="font-size:11px; font-weight:700; color:var(--primary); min-width:55px; text-align:right;" id="sub-500">₱500</span>
+                  </div>
+                </div>
+                <div class="denom-row">
+                  <span class="denom-val-title">₱100 / ₱50 / Coins</span>
+                  <div class="denom-counter-ctrls">
+                    <button class="denom-btn" onclick="adjustDenom('coins', -1)">-</button>
+                    <span class="denom-qty-text" id="qty-coins">7</span>
+                    <button class="denom-btn" onclick="adjustDenom('coins', 1)">+</button>
+                    <span style="font-size:11px; font-weight:700; color:var(--primary); min-width:55px; text-align:right;" id="sub-coins">₱350</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Total & Discrepancy Box -->
+              <div style="background:#F8FAFC; border:1px solid var(--border-color); border-radius:10px; padding:10px; margin-top:8px;">
+                <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:4px;">
+                  <span>Calculated Physical Cash:</span>
+                  <strong style="color:var(--secondary-green);" id="denom-total-cash">₱1,850.00</strong>
+                </div>
+                <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:4px;">
+                  <span>GCash Verified Digital:</span>
+                  <strong style="color:var(--primary);">₱950.00</strong>
+                </div>
+                <div style="display:flex; justify-content:space-between; font-size:13px; font-weight:800; padding-top:6px; border-top:1px dashed var(--border-color);">
+                  <span>Total Handover:</span>
+                  <strong style="color:var(--text-primary);">₱2,800.00</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Button -->
+            <button class="primary-wide-btn" onclick="triggerToast('✅ Remittance verified & deposited to Coop Ledger', '✅')">
+              <i class="fa-solid fa-stamp"></i>
+              <span>Accept & Issue Official E-Receipt</span>
+            </button>
+          </div>
+        </div>
+
+
+        <!-- ====================================================================
+             VIEW 5: 📋 REAL-TIME TRIP LOG & DISPATCH
+             ==================================================================== -->
+        <div id="tab-triplog-content" class="tab-view-content">
+          <div class="coop-banner-ribbon">
+            <div>
+              <i class="fa-solid fa-list-check" style="margin-right:6px;"></i>
+              <span>24 Total Shift Trips Dispatched</span>
+            </div>
+            <span>176 Total Pax</span>
+          </div>
+
+          <div class="generic-list-stack">
+            <!-- Trip Item 8 -->
+            <div class="generic-box-card">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+                <strong style="font-size:13px;">Trip #8 · Baclaran → Pasay</strong>
+                <span class="status-badge-tag remitted">14/14 Pax (Full)</span>
+              </div>
+              <div style="font-size:11px; color:var(--text-secondary); margin-bottom:6px;">
+                Vehicle: <strong>Jeepney 1 · ABC-1021 (R. Santos)</strong> · 2:00 PM - 2:28 PM
+              </div>
+              <div style="display:flex; justify-content:space-between; font-size:11.5px; padding-top:6px; border-top:1px dashed var(--border-color);">
+                <span>Trip Fare: <strong>₱930.00</strong></span>
+                <span style="color:var(--primary); font-weight:700;">10 Cash · 4 GCash</span>
+              </div>
+            </div>
+
+            <!-- Trip Item TODA -->
+            <div class="generic-box-card">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+                <strong style="font-size:13px;">TODA Trip #16 · Redemptorist → Taft</strong>
+                <span class="status-badge-tag remitted">4/4 Pax (Full)</span>
+              </div>
+              <div style="font-size:11px; color:var(--text-secondary); margin-bottom:6px;">
+                Vehicle: <strong>Tricycle 1 · 8812-TC (E. Dimaculangan)</strong> · 2:05 PM - 2:15 PM
+              </div>
+              <div style="display:flex; justify-content:space-between; font-size:11.5px; padding-top:6px; border-top:1px dashed var(--border-color);">
+                <span>Trip Fare: <strong>₱100.00</strong></span>
+                <span style="color:var(--primary); font-weight:700;">3 Cash · 1 GCash</span>
+              </div>
+            </div>
+
+            <!-- Trip Item 7 -->
+            <div class="generic-box-card">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+                <strong style="font-size:13px;">Trip #7 · Pasay → Baclaran</strong>
+                <span class="status-badge-tag remitted">14/14 Pax (Full)</span>
+              </div>
+              <div style="font-size:11px; color:var(--text-secondary); margin-bottom:6px;">
+                Vehicle: <strong>Modern PUV 2 · NDB-4422 (M. Reyes)</strong> · 12:45 PM - 1:12 PM
+              </div>
+              <div style="display:flex; justify-content:space-between; font-size:11.5px; padding-top:6px; border-top:1px dashed var(--border-color);">
+                <span>Trip Fare: <strong>₱930.00</strong></span>
+                <span style="color:var(--primary); font-weight:700;">9 Cash · 5 GCash</span>
+              </div>
+            </div>
+
+            <button class="primary-wide-btn" onclick="triggerToast('Dispatching Trip #9 for Jeepney 1 (ABC-1021)', '🚐')">
+              <i class="fa-solid fa-plus"></i>
+              <span>Dispatch Next Terminal Trip</span>
+            </button>
+          </div>
+        </div>
+
+
+        <!-- ====================================================================
+             VIEW 6: 🧾 OPERATING EXPENSES & BUDGET LEDGER
+             ==================================================================== -->
+        <div id="tab-expenses-content" class="tab-view-content">
+          <div class="coop-banner-ribbon">
+            <div>
+              <i class="fa-solid fa-receipt" style="margin-right:6px;"></i>
+              <span>Cooperative Operating Ledger</span>
+            </div>
+            <span>Daily Deductions</span>
+          </div>
+
+          <div class="generic-list-stack">
+            <!-- Expense Breakdown Card -->
+            <div class="generic-box-card">
+              <div style="font-size:13.5px; font-weight:800; margin-bottom:8px;">📊 Today's Deductions & Fund Allocations</div>
+              
+              <div style="display:flex; flex-direction:column; gap:8px;">
+                <div style="display:flex; justify-content:space-between; font-size:12px; padding:6px 0; border-bottom:1px solid var(--border-light);">
+                  <span>⛽ Fuel Subsidy (Gov Card)</span>
+                  <strong style="color:var(--secondary-green);">+₱3,200 Subsidy</strong>
+                </div>
+                <div style="display:flex; justify-content:space-between; font-size:12px; padding:6px 0; border-bottom:1px solid var(--border-light);">
+                  <span>🏢 Terminal Dispatch & Security Fee</span>
+                  <strong style="color:var(--text-primary);">-₱450.00</strong>
+                </div>
+                <div style="display:flex; justify-content:space-between; font-size:12px; padding:6px 0; border-bottom:1px solid var(--border-light);">
+                  <span>🔧 Cooperative PMS & Tire Reserve (10%)</span>
+                  <strong style="color:var(--text-primary);">-₱985.00</strong>
+                </div>
+                <div style="display:flex; justify-content:space-between; font-size:12px; padding:6px 0; border-bottom:1px solid var(--border-light);">
+                  <span>🏦 Emergency Welfare & Mutual Fund</span>
+                  <strong style="color:var(--text-primary);">-₱250.00</strong>
+                </div>
+                <div style="display:flex; justify-content:space-between; font-size:13px; font-weight:800; padding-top:6px; color:var(--primary);">
+                  <span>Net Cooperative Boundary:</span>
+                  <span>₱8,165.00</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Smart Budget Recommendation -->
+            <div class="generic-box-card">
+              <div style="font-size:13px; font-weight:800; margin-bottom:6px; color:var(--secondary-green);">
+                💡 AI Smart Budget Recommendation
+              </div>
+              <p style="font-size:11.5px; color:var(--text-secondary); line-height:1.4; margin-bottom:10px;">
+                Based on current passenger demand across Jeepneys and TODA feeder routes, allocate ₱22,000 for driver share, ₱16,000 for weekly fuel, and ₱6,000 for vehicle servicing.
+              </p>
+              <button class="primary-wide-btn" style="background:var(--secondary-green);" onclick="triggerToast('Smart budget allocation applied to Landbank account', '✅')">
+                <i class="fa-solid fa-check"></i>
+                <span>Apply Smart Allocation</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- ====================================================================
+             VIEW 7: 🚐 FLEET MANAGEMENT (VEHICLES WITH JEEPNEYS & TRICYCLE)
+             ==================================================================== -->
+        <div id="tab-fleet-content" class="tab-view-content">
+          <div class="coop-banner-ribbon">
+            <div>
+              <span class="live-pulse-dot"></span>
+              <span>Active Units: 4 of 5 Registered Vehicles</span>
+            </div>
+            <span>Pasay City Cooperative Network</span>
+          </div>
+
+          <div class="generic-list-stack">
+            <!-- VEHICLE 1: JEEPNEY 1 -->
+            <div class="vehicle-card active">
+              <img src="assets/images/vehicles/vehicle-1-jeepney.png" class="vehicle-thumb-img" alt="Jeepney 1 - Unit #021" />
+
+              <div class="vehicle-header-row">
+                <div class="vehicle-title-wrap">
+                  <span class="vehicle-title-text">Jeepney 1 (Unit #021)</span>
+                  <span class="plate-number-badge">ABC-1021</span>
+                </div>
+                <span class="status-badge-tag remitted">Active ✅</span>
+              </div>
+              
+              <div class="vehicle-driver-row">
+                <span>Driver: <strong>R. Santos</strong> (Shift A)</span>
+                <span>Traditional PUJ · 20 Pax</span>
+              </div>
+
+              <div class="vehicle-stats-grid">
+                <div class="vehicle-stat-box">
+                  <div style="font-size:10px; color:var(--text-secondary); font-weight:700;">TODAY'S COLLECTION</div>
+                  <strong style="color:var(--primary); font-size:13.5px;">₱2,800.00</strong>
+                  <div style="font-size:9.5px; color:var(--text-secondary); margin-top:2px;">Cash: ₱2,100 · GCash: ₱700</div>
+                </div>
+                <div class="vehicle-stat-box">
+                  <div style="font-size:10px; color:var(--text-secondary); font-weight:700;">ODOMETER & TRIPS</div>
+                  <strong style="font-size:13.5px;">48,210 km</strong>
+                  <div style="font-size:9.5px; color:var(--secondary-green); font-weight:700; margin-top:2px;">3 Completed Trips (11.4 km/L)</div>
+                </div>
+              </div>
+
+              <div class="vehicle-actions-row">
+                <button class="download-outline-btn" style="flex:1;" onclick="switchNavTab('triplog')">
+                  <i class="fa-solid fa-list"></i> Trip Log
+                </button>
+                <button class="download-outline-btn" style="flex:1;" onclick="triggerToast('Jeepney 1 diagnostics: Next PMS in 1,240 km', '🔧')">
+                  <i class="fa-solid fa-wrench"></i> Service Info
+                </button>
+              </div>
+            </div>
+
+            <!-- VEHICLE 5: TRICYCLE 1 -->
+            <div class="vehicle-card active">
+              <img src="assets/images/vehicles/vehicle-5-tricycle.png" class="vehicle-thumb-img" alt="Tricycle 1 - Unit #T-005" />
+
+              <div class="vehicle-header-row">
+                <div class="vehicle-title-wrap">
+                  <span class="vehicle-title-text">Tricycle 1 (Unit #T-005)</span>
+                  <span class="plate-number-badge">8812-TC</span>
+                </div>
+                <span class="status-badge-tag remitted">Active ✅</span>
+              </div>
+              
+              <div class="vehicle-driver-row">
+                <span>Driver: <strong>E. Dimaculangan</strong> (TODA)</span>
+                <span>Motorized Tricycle · 4 Pax</span>
+              </div>
+
+              <div class="vehicle-stats-grid">
+                <div class="vehicle-stat-box">
+                  <div style="font-size:10px; color:var(--text-secondary); font-weight:700;">TODAY'S COLLECTION</div>
+                  <strong style="color:var(--primary); font-size:13.5px;">₱1,450.00</strong>
+                  <div style="font-size:9.5px; color:var(--text-secondary); margin-top:2px;">Cash: ₱1,150 · GCash: ₱300</div>
+                </div>
+                <div class="vehicle-stat-box">
+                  <div style="font-size:10px; color:var(--text-secondary); font-weight:700;">FEEDER TRIPS</div>
+                  <strong style="font-size:13.5px;">16 Trips</strong>
+                  <div style="font-size:9.5px; color:var(--secondary-green); font-weight:700; margin-top:2px;">Pasay TODA Feeder (32 km/L)</div>
+                </div>
+              </div>
+
+              <div class="vehicle-actions-row">
+                <button class="download-outline-btn" style="flex:1;" onclick="switchNavTab('triplog')">
+                  <i class="fa-solid fa-list"></i> TODA Log
+                </button>
+                <button class="download-outline-btn" style="flex:1;" onclick="triggerToast('Tricycle 1: TODA Permit #162 valid until 2027', '🛺')">
+                  <i class="fa-solid fa-shield"></i> TODA Permit
+                </button>
+              </div>
+            </div>
+
+            <!-- VEHICLE 2: MODERN PUV 2 -->
+            <div class="vehicle-card active">
+              <img src="assets/images/vehicles/vehicle-2-modernpuv.png" class="vehicle-thumb-img" alt="Modern PUV 2 - Unit #022" />
+
+              <div class="vehicle-header-row">
+                <div class="vehicle-title-wrap">
+                  <span class="vehicle-title-text">Modern PUV 2 (Unit #022)</span>
+                  <span class="plate-number-badge">NDB-4422</span>
+                </div>
+                <span class="status-badge-tag pending">Active ✅</span>
+              </div>
+              
+              <div class="vehicle-driver-row">
+                <span>Driver: <strong>M. Reyes</strong> (Shift A)</span>
+                <span>Modernized PUV · 22 Pax</span>
+              </div>
+
+              <div class="vehicle-stats-grid">
+                <div class="vehicle-stat-box">
+                  <div style="font-size:10px; color:var(--text-secondary); font-weight:700;">TODAY'S COLLECTION</div>
+                  <strong style="color:var(--warning-orange); font-size:13.5px;">₱2,800.00</strong>
+                  <div style="font-size:9.5px; color:var(--text-secondary); margin-top:2px;">Cash: ₱1,850 · GCash: ₱950</div>
+                </div>
+                <div class="vehicle-stat-box">
+                  <div style="font-size:10px; color:var(--text-secondary); font-weight:700;">ODOMETER & TRIPS</div>
+                  <strong style="font-size:13.5px;">52,100 km</strong>
+                  <div style="font-size:9.5px; color:var(--secondary-green); font-weight:700; margin-top:2px;">3 Completed Trips (10.9 km/L)</div>
+                </div>
+              </div>
+
+              <div class="vehicle-actions-row">
+                <button class="download-outline-btn" style="flex:1;" onclick="switchNavTab('remit')">
+                  <i class="fa-solid fa-hand-holding-dollar"></i> Remit Desk
+                </button>
+                <button class="download-outline-btn" style="flex:1;" onclick="triggerToast('Modern PUV 2 diagnostics: Next PMS in 850 km', '🔧')">
+                  <i class="fa-solid fa-wrench"></i> Service Info
+                </button>
+              </div>
+            </div>
+
+            <!-- VEHICLE 3: MODERN PUV 3 -->
+            <div class="vehicle-card review">
+              <img src="assets/images/vehicles/vehicle-3-modernpuv.png" class="vehicle-thumb-img" alt="Modern PUV 3 - Unit #023" />
+
+              <div class="vehicle-header-row">
+                <div class="vehicle-title-wrap">
+                  <span class="vehicle-title-text">Modern PUV 3 (Unit #023)</span>
+                  <span class="plate-number-badge">NBF-9823</span>
+                </div>
+                <span class="status-badge-tag review">Review ⚠️</span>
+              </div>
+              
+              <div class="vehicle-driver-row">
+                <span>Driver: <strong>J. Cruz</strong> (Shift A)</span>
+                <span>Modernized PUV · 22 Pax</span>
+              </div>
+
+              <div class="vehicle-stats-grid">
+                <div class="vehicle-stat-box">
+                  <div style="font-size:10px; color:var(--text-secondary); font-weight:700;">TODAY'S COLLECTION</div>
+                  <strong style="color:var(--danger-red); font-size:13.5px;">₱2,800.00</strong>
+                  <div style="font-size:9.5px; color:var(--danger-red); font-weight:700; margin-top:2px;">⚠️ ₱100 Discrepancy flag</div>
+                </div>
+                <div class="vehicle-stat-box">
+                  <div style="font-size:10px; color:var(--text-secondary); font-weight:700;">ODOMETER & TRIPS</div>
+                  <strong style="font-size:13.5px;">39,840 km</strong>
+                  <div style="font-size:9.5px; color:var(--text-secondary); font-weight:700; margin-top:2px;">2 Completed Trips (11.2 km/L)</div>
+                </div>
+              </div>
+
+              <div class="vehicle-actions-row">
+                <button class="download-outline-btn" style="flex:1;" onclick="switchNavTab('remit')">
+                  <i class="fa-solid fa-triangle-exclamation" style="color:var(--danger-red);"></i> Resolve Disc.
+                </button>
+                <button class="download-outline-btn" style="flex:1;" onclick="triggerToast('Modern PUV 3 diagnostics: All sensors normal', '🔧')">
+                  <i class="fa-solid fa-wrench"></i> Service Info
+                </button>
+              </div>
+            </div>
+
+            <!-- VEHICLE 4: JEEPNEY 4 -->
+            <div class="vehicle-card standby">
+              <img src="assets/images/vehicles/vehicle-4-jeepney.png" class="vehicle-thumb-img" alt="Jeepney 4 - Unit #024" />
+
+              <div class="vehicle-header-row">
+                <div class="vehicle-title-wrap">
+                  <span class="vehicle-title-text">Jeepney 4 (Unit #024)</span>
+                  <span class="plate-number-badge">UAA-7724</span>
+                </div>
+                <span class="status-badge-tag" style="background:#64748B;">Standby ⏸️</span>
+              </div>
+              
+              <div class="vehicle-driver-row">
+                <span>Driver: <strong>A. Bautista</strong> (Shift B)</span>
+                <span>Traditional PUJ · 18 Pax</span>
+              </div>
+
+              <div class="vehicle-stats-grid">
+                <div class="vehicle-stat-box">
+                  <div style="font-size:10px; color:var(--text-secondary); font-weight:700;">DUTY STATUS</div>
+                  <strong style="color:#64748B; font-size:13.5px;">Shift B Standby</strong>
+                  <div style="font-size:9.5px; color:var(--text-secondary); margin-top:2px;">Scheduled: 4:00 PM Dispatch</div>
+                </div>
+                <div class="vehicle-stat-box">
+                  <div style="font-size:10px; color:var(--text-secondary); font-weight:700;">ODOMETER</div>
+                  <strong style="font-size:13.5px;">61,400 km</strong>
+                  <div style="font-size:9.5px; color:var(--secondary-green); font-weight:700; margin-top:2px;">PMS Verified (10.8 km/L)</div>
+                </div>
+              </div>
+
+              <div class="vehicle-actions-row">
+                <button class="download-outline-btn" style="flex:1;" onclick="triggerToast('Dispatching Jeepney 4 for afternoon shift', '🚐')">
+                  <i class="fa-solid fa-play"></i> Activate for Dispatch
+                </button>
+              </div>
+            </div>
+
+            <button class="primary-wide-btn" onclick="triggerToast('Opening Vehicle & TODA Accreditation Form', '➕')">
               <i class="fa-solid fa-plus"></i>
               <span>Register New Vehicle Unit</span>
             </button>
@@ -1828,142 +2836,141 @@
 
 
         <!-- ====================================================================
-             TAB 3: 📊 REPORTS (FINANCIAL SUMMARY & REPORTING)
-             ==================================================================== -->
-        <div id="tab-reports-content" class="tab-view-content">
-
-          <!-- Sub-bar Ribbon for Reports -->
-          <div class="coop-banner-ribbon">
-            <div>
-              <i class="fa-solid fa-file-invoice-dollar" style="margin-right:6px;"></i>
-              <span>Cooperative Fiscal Audit</span>
-            </div>
-            <span>Updated Today</span>
-          </div>
-
-          <div class="generic-list-stack">
-            <!-- Weekly Summary -->
-            <div class="generic-box-card">
-              <div style="display:flex; justify-content: space-between; align-items:center;">
-                <span style="font-size: 13.5px; font-weight: 700;">📈 Weekly Summary</span>
-                <span class="report-badge-pill" style="color:var(--primary); background:var(--primary-light);">Past 7 Days</span>
-              </div>
-              <div class="report-stat-num">₱58,800.00</div>
-              <div class="report-breakdown-row">
-                <span>💵 Cash: ₱43,750 (74%)</span>
-                <span>💳 GCash: ₱15,050 (26%)</span>
-              </div>
-            </div>
-
-            <!-- Monthly Overview -->
-            <div class="generic-box-card">
-              <div style="display:flex; justify-content: space-between; align-items:center;">
-                <span style="font-size: 13.5px; font-weight: 700;">📊 Monthly Overview</span>
-                <span class="report-badge-pill" style="color:#AF52DE; background:#F3E8FF;">June 2026</span>
-              </div>
-              <div class="report-stat-num">₱235,200.00</div>
-              <div class="report-breakdown-row">
-                <span>💵 Cash: ₱175,000 (74%)</span>
-                <span>💳 GCash: ₱60,200 (26%)</span>
-              </div>
-            </div>
-
-            <!-- Available Reports -->
-            <div class="generic-box-card">
-              <span style="font-size: 13px; font-weight: 700; display:block; margin-bottom: 10px;">📋 Available Statements</span>
-              <ul class="report-item-list">
-                <li class="report-list-row" onclick="triggerToast('Generating Collection Summary PDF...', '📄')">
-                  <i class="fa-solid fa-file-pdf" style="color:#FF3B30; font-size:15px;"></i>
-                  <span>Collection Summary Statement</span>
-                </li>
-                <li class="report-list-row" onclick="triggerToast('Generating Driver Performance Report...', '📄')">
-                  <i class="fa-solid fa-file-lines" style="color:var(--primary); font-size:15px;"></i>
-                  <span>Driver Performance & Boundary Ledger</span>
-                </li>
-                <li class="report-list-row" onclick="triggerToast('Generating Expense Tracking Sheet...', '📄')">
-                  <i class="fa-solid fa-file-excel" style="color:var(--secondary-green); font-size:15px;"></i>
-                  <span>Expense & Fuel Subsidy Report</span>
-                </li>
-                <li class="report-list-row" onclick="triggerToast('Generating Budget Allocation Summary...', '📄')">
-                  <i class="fa-solid fa-chart-pie" style="color:#AF52DE; font-size:15px;"></i>
-                  <span>Smart Budget Allocation Breakdown</span>
-                </li>
-              </ul>
-            </div>
-
-            <button class="primary-wide-btn" onclick="triggerToast('📥 Download All Reports: Bundle downloaded', '📥')">
-              <i class="fa-solid fa-download"></i>
-              <span>Download All Reports (ZIP/CSV)</span>
-            </button>
-          </div>
-        </div>
-
-
-        <!-- ====================================================================
-             TAB 4: 👤 PROFILE (COOPERATIVE SETTINGS)
+             VIEW 8: 👤 COOPERATIVE PROFILE & CONTROLS (GCASH STYLE)
              ==================================================================== -->
         <div id="tab-profile-content" class="tab-view-content">
-
-          <!-- Sub-bar Ribbon for Profile -->
-          <div class="coop-banner-ribbon">
-            <div>
-              <i class="fa-solid fa-shield-halved" style="margin-right:6px;"></i>
-              <span>Administrator Access</span>
-            </div>
-            <span>Verified</span>
-          </div>
-
+          
           <div class="generic-list-stack">
-            <!-- Cooperative Info -->
-            <div class="generic-box-card">
-              <div class="profile-title-h3">🏢 GPasada Transport Coop</div>
-              <div class="profile-info-text">
-                <div>📍 Baclaran, Pasay City</div>
-                <div>📞 (02) 8123-4567</div>
-                <div>📧 info@gpasada.com</div>
+            <!-- Profile Hero Header Card -->
+            <div class="profile-hero-card">
+              <div class="profile-hero-title">
+                <span>🏢</span>
+                <span>GPasada Transport Cooperative</span>
+              </div>
+              <div class="profile-hero-subtitle">
+                CDA Reg: #9520-10023412 · LTFRB Franchise: NCR-2024-0912 · Pasay TODA Federation
+              </div>
+              <div class="profile-badges-row">
+                <span class="profile-pill-tag">✓ CDA Registered</span>
+                <span class="profile-pill-tag">✓ LTFRB Compliant</span>
+                <span class="profile-pill-tag">✓ TODA Accredited</span>
+                <span class="profile-pill-tag">✓ GCash Merchant Partner</span>
               </div>
             </div>
 
-            <!-- Settings List -->
-            <div class="generic-box-card" style="padding: 10px 14px;">
-              <div style="font-size: 13px; font-weight: 800; padding: 4px 0 8px 0; border-bottom: 1px solid var(--border-light); margin-bottom: 2px;">
-                ⚙️ Settings
+            <!-- Terminal Office & Contacts -->
+            <div class="generic-box-card">
+              <div style="font-size:13px; font-weight:800; margin-bottom:8px; color:var(--text-primary);">
+                📍 Terminal & Operational Office
               </div>
-              <div style="display:flex; flex-direction:column;">
-                <div class="profile-setting-item" onclick="triggerToast('Account Settings: Pasay Coop Administrator', '⚙️')">
-                  <span>• Account Settings</span>
-                  <i class="fa-solid fa-chevron-right" style="color:var(--text-muted); font-size:11px;"></i>
+              <div style="display:flex; flex-direction:column; gap:6px; font-size:11.5px; color:var(--text-secondary);">
+                <div style="display:flex; align-items:center; gap:8px;">
+                  <i class="fa-solid fa-location-dot" style="color:var(--primary); width:14px;"></i>
+                  <span>Roxas Blvd. cor. Redemptorist Rd., Baclaran, Pasay City</span>
                 </div>
-                <div class="profile-setting-item" onclick="triggerToast('Notification Preferences: SMS & In-app alerts enabled', '🔔')">
-                  <span>• Notification Preferences</span>
-                  <i class="fa-solid fa-chevron-right" style="color:var(--text-muted); font-size:11px;"></i>
+                <div style="display:flex; align-items:center; gap:8px;">
+                  <i class="fa-solid fa-phone" style="color:var(--secondary-green); width:14px;"></i>
+                  <span>Hotline: (02) 8123-4567 / 0917-888-GPAS</span>
                 </div>
-                <div class="profile-setting-item" onclick="triggerToast('Help Center: Hotline available 24/7', '❓')">
-                  <span>• Help & Support</span>
-                  <i class="fa-solid fa-chevron-right" style="color:var(--text-muted); font-size:11px;"></i>
-                </div>
-                <div class="profile-setting-item" onclick="triggerToast('GPasada v2.4.0 — Powered by GCash FinTech', '🚐')">
-                  <span>• About GPasada</span>
-                  <i class="fa-solid fa-chevron-right" style="color:var(--text-muted); font-size:11px;"></i>
+                <div style="display:flex; align-items:center; gap:8px;">
+                  <i class="fa-solid fa-envelope" style="color:#AF52DE; width:14px;"></i>
+                  <span>Official Email: operations@gpasada-coop.ph</span>
                 </div>
               </div>
             </div>
 
-            <!-- Quick Stats -->
+            <!-- Cooperative Controls (GCash Style List) -->
+            <div class="settings-group-card">
+              <div class="settings-group-header">
+                Cooperative Financial & System Controls
+              </div>
+
+              <!-- Item 1: Landbank Vault -->
+              <div class="settings-item-row" onclick="triggerToast('Opening Landbank Vault Auto-Deposit Settings', '🏦')">
+                <div class="settings-left-cluster">
+                  <div class="settings-icon-circle blue">
+                    <i class="fa-solid fa-building-columns"></i>
+                  </div>
+                  <div>
+                    <div class="settings-item-text">Landbank Cooperative Vault</div>
+                    <div class="settings-item-sub">Acct: **** **** 8829 · Auto-Sweep Enabled</div>
+                  </div>
+                </div>
+                <i class="fa-solid fa-chevron-right" style="color:var(--text-muted); font-size:12px;"></i>
+              </div>
+
+              <!-- Item 2: SMS Alerts -->
+              <div class="settings-item-row" onclick="triggerToast('Remittance SMS & GCash webhook notifications active', '🔔')">
+                <div class="settings-left-cluster">
+                  <div class="settings-icon-circle orange">
+                    <i class="fa-solid fa-bell"></i>
+                  </div>
+                  <div>
+                    <div class="settings-item-text">Remittance SMS & Push Alerts</div>
+                    <div class="settings-item-sub">Real-time alerts for driver handovers</div>
+                  </div>
+                </div>
+                <i class="fa-solid fa-chevron-right" style="color:var(--text-muted); font-size:12px;"></i>
+              </div>
+
+              <!-- Item 3: LTFRB & TODA Compliance -->
+              <div class="settings-item-row" onclick="triggerToast('LTFRB & TODA Compliance: 100% Valid', '📜')">
+                <div class="settings-left-cluster">
+                  <div class="settings-icon-circle purple">
+                    <i class="fa-solid fa-file-shield"></i>
+                  </div>
+                  <div>
+                    <div class="settings-item-text">LTFRB & TODA Accreditations</div>
+                    <div class="settings-item-sub">Franchise validity, TODA permits & passenger insurance</div>
+                  </div>
+                </div>
+                <i class="fa-solid fa-chevron-right" style="color:var(--text-muted); font-size:12px;"></i>
+              </div>
+
+              <!-- Item 4: Emergency Mutual Fund -->
+              <div class="settings-item-row" onclick="triggerToast('Opening Driver Welfare & Mutual Emergency Fund', '🛡️')">
+                <div class="settings-left-cluster">
+                  <div class="settings-icon-circle green">
+                    <i class="fa-solid fa-hand-holding-heart"></i>
+                  </div>
+                  <div>
+                    <div class="settings-item-text">Driver Welfare & Mutual Fund</div>
+                    <div class="settings-item-sub">₱250/day driver emergency assistance fund</div>
+                  </div>
+                </div>
+                <i class="fa-solid fa-chevron-right" style="color:var(--text-muted); font-size:12px;"></i>
+              </div>
+
+              <!-- Item 5: System Diagnostics -->
+              <div class="settings-item-row" onclick="triggerToast('GPasada v2.5.0 — Powered by GCash FinTech Engine', '🚐')">
+                <div class="settings-left-cluster">
+                  <div class="settings-icon-circle slate">
+                    <i class="fa-solid fa-gear"></i>
+                  </div>
+                  <div>
+                    <div class="settings-item-text">System Diagnostics & Version</div>
+                    <div class="settings-item-sub">GPasada v2.5.0 · Cloud Engine Active</div>
+                  </div>
+                </div>
+                <i class="fa-solid fa-chevron-right" style="color:var(--text-muted); font-size:12px;"></i>
+              </div>
+            </div>
+
+            <!-- Membership Overview -->
             <div class="generic-box-card">
-              <div style="font-size: 13px; font-weight: 800; margin-bottom: 8px;">📊 Quick Stats</div>
-              <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:8px; text-align:center;">
+              <div style="font-size:13px; font-weight:800; margin-bottom:8px;">📊 Membership Overview</div>
+              <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:8px; text-align:center;">
                 <div style="background:#F8FAFC; padding:10px 6px; border-radius:8px;">
-                  <div style="font-size:18px; font-weight:800; color:var(--primary);">25</div>
-                  <div style="font-size:10px; color:var(--text-secondary); font-weight:700;">Members</div>
+                  <div style="font-size:18px; font-weight:800; color:var(--primary);">28</div>
+                  <div style="font-size:10px; color:var(--text-secondary); font-weight:700;">Coop Members</div>
                 </div>
                 <div style="background:#F8FAFC; padding:10px 6px; border-radius:8px;">
-                  <div style="font-size:18px; font-weight:800; color:var(--secondary-green);">3</div>
-                  <div style="font-size:10px; color:var(--text-secondary); font-weight:700;">Units</div>
+                  <div style="font-size:18px; font-weight:800; color:var(--secondary-green);">5</div>
+                  <div style="font-size:10px; color:var(--text-secondary); font-weight:700;">Vehicles</div>
                 </div>
                 <div style="background:#F8FAFC; padding:10px 6px; border-radius:8px;">
-                  <div style="font-size:18px; font-weight:800; color:#AF52DE;">3</div>
-                  <div style="font-size:10px; color:var(--text-secondary); font-weight:700;">Drivers</div>
+                  <div style="font-size:18px; font-weight:800; color:#AF52DE;">5</div>
+                  <div style="font-size:10px; color:var(--text-secondary); font-weight:700;">Duty Drivers</div>
                 </div>
               </div>
             </div>
@@ -1973,7 +2980,7 @@
       </div> <!-- End App Screen Scroll Viewport -->
 
       <!-- ====================================================================
-           2. PERSISTENT BOTTOM NAVIGATION BAR
+           2. PERSISTENT BOTTOM NAVIGATION BAR (VEHICLES TAB)
            ==================================================================== -->
       <nav class="bottom-nav-bar">
         <button class="tab-bar-item active" id="tab-btn-home" onclick="switchNavTab('home')">
@@ -1981,12 +2988,12 @@
           <span class="tab-label">Home</span>
         </button>
         <button class="tab-bar-item" id="tab-btn-fleet" onclick="switchNavTab('fleet')">
-          <i class="fa-solid fa-truck tab-icon"></i>
-          <span class="tab-label">Fleet</span>
+          <i class="fa-solid fa-van-shuttle tab-icon"></i>
+          <span class="tab-label">Vehicles</span>
         </button>
-        <button class="tab-bar-item" id="tab-btn-reports" onclick="switchNavTab('reports')">
+        <button class="tab-bar-item" id="tab-btn-analytics" onclick="switchNavTab('analytics')">
           <i class="fa-solid fa-chart-line tab-icon"></i>
-          <span class="tab-label">Reports</span>
+          <span class="tab-label">Analytics</span>
         </button>
         <button class="tab-bar-item" id="tab-btn-profile" onclick="switchNavTab('profile')">
           <i class="fa-solid fa-user tab-icon"></i>
@@ -2004,10 +3011,28 @@
     // State Variables
     let isBalanceHidden = false;
     let isExtraGridVisible = false;
-    const realAmount = "8,400.00";
+    const realAmount = "9,850.00";
     const maskedAmount = "••••••••";
-    const realCash = "₱6,250";
-    const realGCash = "₱2,150";
+    const realCash = "₱7,400";
+    const realGCash = "₱2,450";
+
+    // Denomination Calculator State
+    const denoms = { '1000': 1, '500': 1, 'coins': 7 };
+
+    function adjustDenom(type, delta) {
+      denoms[type] = Math.max(0, denoms[type] + delta);
+      document.getElementById(`qty-${type}`).innerText = denoms[type];
+      
+      let subtotal = 0;
+      if (type === '1000') subtotal = denoms[type] * 1000;
+      if (type === '500') subtotal = denoms[type] * 500;
+      if (type === 'coins') subtotal = denoms[type] * 50;
+
+      document.getElementById(`sub-${type}`).innerText = `₱${subtotal.toLocaleString()}`;
+      
+      const totalCash = (denoms['1000'] * 1000) + (denoms['500'] * 500) + (denoms['coins'] * 50);
+      document.getElementById('denom-total-cash').innerText = `₱${totalCash.toLocaleString()}.00`;
+    }
 
     // Adaptive Zoom Controller for Desktop View
     function setDeviceScale(scaleVal) {
@@ -2046,25 +3071,7 @@
       }
     });
 
-    // 1. Real-Time Dynamic Clock Update
-    function updateClock() {
-      const now = new Date();
-      let hours = now.getHours();
-      const minutes = String(now.getMinutes()).padStart(2, '0');
-      const ampm = hours >= 12 ? 'PM' : 'AM';
-      hours = hours % 12;
-      hours = hours ? hours : 12;
-      const timeStr = `${hours}:${minutes} ${ampm}`;
-      
-      const clockElement = document.getElementById('live-clock');
-      if (clockElement) {
-        clockElement.innerText = timeStr;
-      }
-    }
-    setInterval(updateClock, 1000);
-    updateClock();
-
-    // 2. Toast Notification Functionality
+    // Toast Notification Functionality
     let toastTimeout = null;
     function triggerToast(message, icon = 'ℹ️') {
       const toast = document.getElementById('toast');
@@ -2085,7 +3092,7 @@
       }, 2000);
     }
 
-    // 3. Balance Privacy Toggle
+    // Balance Privacy Toggle
     function toggleBalancePrivacy() {
       isBalanceHidden = !isBalanceHidden;
       const balanceText = document.getElementById('balance-display-text');
@@ -2108,7 +3115,7 @@
       }
     }
 
-    // 4. Expand / Hide More Quick Action Grid Items
+    // Expand / Hide More Quick Action Grid Items
     function toggleMoreTools() {
       isExtraGridVisible = !isExtraGridVisible;
       const extraGrid = document.getElementById('extra-tools-grid');
@@ -2119,7 +3126,7 @@
         extraGrid.classList.add('active');
         moreLabel.innerText = "Less";
         moreIcon.innerHTML = '<i class="fa-solid fa-chevron-up"></i>';
-        triggerToast('Expanded additional tools', '⚡');
+        triggerToast('Expanded additional operations tools', '⚡');
       } else {
         extraGrid.classList.remove('active');
         moreLabel.innerText = "More";
@@ -2127,7 +3134,7 @@
       }
     }
 
-    // 5. Dynamic Persistent Header & Tab Switching System
+    // Dynamic Navigation & Sub-Page Switcher
     function switchNavTab(tabName) {
       // 1. Update tab button active states
       document.querySelectorAll('.tab-bar-item').forEach(btn => btn.classList.remove('active'));
@@ -2136,41 +3143,53 @@
         activeBtn.classList.add('active');
       }
 
-      // 2. Hide all tab contents and show selected tab
+      // 2. Hide all tab views and show selected
       document.querySelectorAll('.tab-view-content').forEach(tab => tab.classList.remove('active'));
       const activeContent = document.getElementById(`tab-${tabName}-content`);
       if (activeContent) {
         activeContent.classList.add('active');
       }
 
-      // 3. Update Persistent Header Title, Badge, and Icon dynamically
+      // 3. Dynamic Persistent Header Title, Badge, Logo, and Back Button
       const headerTitle = document.getElementById('header-title-text');
       const headerBadge = document.getElementById('header-badge-tag');
       const headerLogo = document.getElementById('header-logo-icon');
+      const backBtn = document.getElementById('header-back-btn');
 
       if (tabName === 'home') {
+        if (backBtn) backBtn.classList.remove('visible');
+        if (headerLogo) { headerLogo.style.display = "flex"; headerLogo.innerHTML = "🚐"; }
         if (headerTitle) headerTitle.innerText = "GPasada";
-        if (headerBadge) headerBadge.innerText = "Coop";
-        if (headerLogo) headerLogo.innerHTML = "🚐";
-        triggerToast('Home: Pasada Live Dashboard', '🏠');
-      } else if (tabName === 'fleet') {
-        if (headerTitle) headerTitle.innerText = "Fleet Overview";
-        if (headerBadge) headerBadge.innerText = "3 Units";
-        if (headerLogo) headerLogo.innerHTML = '<i class="fa-solid fa-truck" style="font-size:16px;"></i>';
-        triggerToast('Fleet: 3 Active Cooperative Units', '🚐');
-      } else if (tabName === 'reports') {
-        if (headerTitle) headerTitle.innerText = "Financial Reports";
-        if (headerBadge) headerBadge.innerText = "Audit";
-        if (headerLogo) headerLogo.innerHTML = '<i class="fa-solid fa-chart-line" style="font-size:16px;"></i>';
-        triggerToast('Reports: Financial Summaries & Ledger', '📊');
-      } else if (tabName === 'profile') {
-        if (headerTitle) headerTitle.innerText = "Coop Profile";
-        if (headerBadge) headerBadge.innerText = "Admin";
-        if (headerLogo) headerLogo.innerHTML = '<i class="fa-solid fa-user" style="font-size:16px;"></i>';
-        triggerToast('Profile: GPasada Cooperative Settings', '👤');
+        if (headerBadge) { headerBadge.style.display = "inline-block"; headerBadge.innerText = "Coop"; }
+      } else {
+        if (backBtn) backBtn.classList.add('visible');
+        if (headerLogo) headerLogo.style.display = "none";
+        
+        if (tabName === 'analytics') {
+          if (headerTitle) headerTitle.innerText = "Analytics & Reports";
+          if (headerBadge) { headerBadge.style.display = "inline-block"; headerBadge.innerText = "Insights"; }
+        } else if (tabName === 'drivers') {
+          if (headerTitle) headerTitle.innerText = "Drivers Duty Roster";
+          if (headerBadge) { headerBadge.style.display = "inline-block"; headerBadge.innerText = "5 Drivers"; }
+        } else if (tabName === 'remit') {
+          if (headerTitle) headerTitle.innerText = "Remittance Desk";
+          if (headerBadge) { headerBadge.style.display = "inline-block"; headerBadge.innerText = "Audit"; }
+        } else if (tabName === 'triplog') {
+          if (headerTitle) headerTitle.innerText = "Trip Dispatch Log";
+          if (headerBadge) { headerBadge.style.display = "inline-block"; headerBadge.innerText = "24 Trips"; }
+        } else if (tabName === 'expenses') {
+          if (headerTitle) headerTitle.innerText = "Operating Expenses";
+          if (headerBadge) { headerBadge.style.display = "inline-block"; headerBadge.innerText = "Ledger"; }
+        } else if (tabName === 'fleet') {
+          if (headerTitle) headerTitle.innerText = "Fleet Vehicles";
+          if (headerBadge) { headerBadge.style.display = "inline-block"; headerBadge.innerText = "5 Units"; }
+        } else if (tabName === 'profile') {
+          if (headerTitle) headerTitle.innerText = "Cooperative Profile";
+          if (headerBadge) { headerBadge.style.display = "inline-block"; headerBadge.innerText = "Admin"; }
+        }
       }
 
-      // 4. Scroll view to top smoothly
+      // 4. Scroll viewport smoothly to top
       const viewport = document.getElementById('scroll-container');
       if (viewport) {
         viewport.scrollTo({ top: 0, behavior: 'smooth' });
