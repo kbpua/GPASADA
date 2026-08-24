@@ -1,13 +1,26 @@
-# 📁 GPasada Vehicles & Drivers PNG Photo Guide
+# 📁 GPasada Assets & Logo Guide
 
-This directory holds all the **PNG photo assets** for all cooperative **Vehicles (Jeepneys, Modern PUVs, and Tricycles)** and **Accredited Drivers**.
+This directory holds all the **PNG photo assets** for the **Logo**, **Vehicles (Jeepneys, Modern PUVs, and Tricycles)**, and **Accredited Drivers**.
 
 ---
 
-## 🗂️ Folder Structure
+## 🏷️ How to Change the Cooperative / App Logo
+
+1. **File Location**:
+   `assets/images/logo.png`  *(or `assets/images/logo/logo.png`)*
+2. **File Name**:
+   **`logo.png`** (Recommended size: 512x512 px or transparent square PNG)
+
+When you replace `assets/images/logo.png`, it will automatically appear as your official app logo in the header and profile.
+
+---
+
+## 🗂️ Complete Directory Structure
 
 ```
 assets/images/
+├── logo.png                     <-- 🏷️ Put your new app/coop logo here
+│
 ├── vehicles/
 │   ├── vehicle-1-jeepney.png    <-- Jeepney 1 (Unit #021 · Traditional PUJ · ABC-1021)
 │   ├── vehicle-2-modernpuv.png  <-- Modern PUV 2 (Unit #022 · Modern PUV · NDB-4422)
@@ -22,13 +35,3 @@ assets/images/
     ├── driver-4-bautista.png      <-- Antonio Bautista (Jeepney 4)
     └── driver-5-dimaculangan.png  <-- Efren Dimaculangan (Tricycle 1 · TODA)
 ```
-
----
-
-## 📸 How to Replace with Your Own Real PNG Photos:
-
-You can swap any of these PNG files with your own camera photos anytime:
-
-1. Save your photo as **`.png`** inside `assets/images/vehicles/` or `assets/images/drivers/`.
-2. Keep the matching filename (e.g. `vehicle-5-tricycle.png` or `driver-5-dimaculangan.png`).
-3. Refresh the app to see your custom photo immediately!

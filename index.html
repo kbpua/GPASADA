@@ -194,32 +194,67 @@
     }
 
     .brand-logo-circle {
-      width: 36px;
-      height: 36px;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 10px;
+      width: 44px;
+      height: 44px;
+      background: #FFFFFF;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 18px;
-      color: #FFFFFF;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.16);
+      border: 2px solid rgba(255, 255, 255, 0.95);
+      flex-shrink: 0;
+      overflow: hidden;
+      padding: 2px;
+    }
+
+    .brand-text-block {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .brand-text {
-      font-size: 18px;
+      font-size: 19px;
       font-weight: 800;
       letter-spacing: -0.3px;
       display: flex;
       align-items: center;
       gap: 6px;
+      line-height: 1.1;
+      color: #FFFFFF;
+    }
+
+    .brand-tagline {
+      font-size: 9.5px;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 500;
+      margin-top: 2px;
+      line-height: 1.2;
+      max-width: 220px;
+      letter-spacing: -0.1px;
+    }
+
+    .header-text-badge {
+      font-size: 11px;
+      font-weight: 700;
+      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 3px 8px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .header-text-badge:hover {
+      background: rgba(255, 255, 255, 0.32);
     }
 
     .brand-tag-pill {
-      font-size: 9.5px;
+      font-size: 9px;
       font-weight: 800;
       background: rgba(255, 255, 255, 0.25);
-      padding: 2px 7px;
-      border-radius: 6px;
+      padding: 1.5px 6px;
+      border-radius: 5px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
@@ -1549,19 +1584,23 @@
             <button class="header-back-btn" id="header-back-btn" onclick="switchNavTab('home'); event.stopPropagation();" title="Back to Dashboard">
               <i class="fa-solid fa-arrow-left"></i>
             </button>
-            <div class="brand-logo-circle" id="header-logo-icon">🚐</div>
-            <div class="brand-text">
-              <span id="header-title-text">GPasada</span>
-              <span class="brand-tag-pill" id="header-badge-tag">Coop</span>
+            <div class="brand-logo-circle" id="header-logo-icon">
+              <img src="assets/images/logo.svg" onerror="this.onerror=null; this.src='assets/images/logo.png';" style="width:100%; height:100%; object-fit:contain; border-radius:50%; display:block;" alt="GPasada" />
+            </div>
+            <div class="brand-text-block">
+              <div class="brand-text">
+                <span id="header-title-text">GPasada</span>
+                <span class="brand-tag-pill" id="header-badge-tag">Coop</span>
+              </div>
+              <p class="brand-tagline" id="header-tagline-text">Dahil ang Bawat Pamasahe ay Para sa Susunod na Byahe.</p>
             </div>
           </div>
           <div class="header-btn-cluster">
+            <span class="header-text-badge" style="background: rgba(255, 255, 255, 0.22); font-size: 10px; padding: 2px 7px;">New</span>
+            <span class="header-text-badge" onclick="switchNavTab('profile')" style="font-size: 11px; padding: 2px 8px;">Admin</span>
             <button class="header-round-btn" title="Notifications" onclick="triggerToast('🔔 2 pending remittance reviews', '🔔')">
               <i class="fa-solid fa-bell"></i>
               <span class="header-notif-dot"></span>
-            </button>
-            <button class="header-round-btn" title="Profile Settings" onclick="switchNavTab('profile')">
-              <i class="fa-solid fa-user"></i>
             </button>
           </div>
         </div>
@@ -2560,59 +2599,276 @@
 
 
         <!-- ====================================================================
-             VIEW 6: 🧾 OPERATING EXPENSES & BUDGET LEDGER
+             VIEW 6: 🧾 OPERATING EXPENSES & BUDGET LEDGER (PREMIUM REDESIGN)
              ==================================================================== -->
         <div id="tab-expenses-content" class="tab-view-content">
+          
+          <!-- Top Sub-bar Ribbon -->
           <div class="coop-banner-ribbon">
             <div>
-              <i class="fa-solid fa-receipt" style="margin-right:6px;"></i>
-              <span>Cooperative Operating Ledger</span>
+              <i class="fa-solid fa-calculator" style="margin-right:6px;"></i>
+              <span>Cooperative Fiscal & Boundary Ledger</span>
             </div>
-            <span>Daily Deductions</span>
+            <span>Daily Audit · Live</span>
           </div>
 
           <div class="generic-list-stack">
-            <!-- Expense Breakdown Card -->
-            <div class="generic-box-card">
-              <div style="font-size:13.5px; font-weight:800; margin-bottom:8px;">📊 Today's Deductions & Fund Allocations</div>
+
+            <!-- 1. HERO NET BOUNDARY CARD (PREMIUM FINTECH GRADIENT) -->
+            <div style="background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); border-radius: 18px; padding: 20px 18px; color: #FFFFFF; box-shadow: 0 10px 25px rgba(15, 23, 42, 0.25); border: 1px solid rgba(255, 255, 255, 0.12); position: relative; overflow: hidden;">
               
-              <div style="display:flex; flex-direction:column; gap:8px;">
-                <div style="display:flex; justify-content:space-between; font-size:12px; padding:6px 0; border-bottom:1px solid var(--border-light);">
-                  <span>⛽ Fuel Subsidy (Gov Card)</span>
-                  <strong style="color:var(--secondary-green);">+₱3,200 Subsidy</strong>
+              <!-- Subtle decorative glow -->
+              <div style="position: absolute; right: -20px; top: -20px; width: 120px; height: 120px; background: radial-gradient(circle, rgba(0, 125, 254, 0.35) 0%, rgba(0,0,0,0) 70%); border-radius: 50%; pointer-events: none;"></div>
+
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                <span style="font-size: 11.5px; font-weight: 700; color: #94A3B8; text-transform: uppercase; letter-spacing: 0.6px;">Net Cooperative Boundary</span>
+                <span style="font-size: 10px; font-weight: 800; background: rgba(52, 199, 89, 0.2); color: #34C759; padding: 3px 8px; border-radius: 20px; border: 1px solid rgba(52, 199, 89, 0.35); display: flex; align-items: center; gap: 4px;">
+                  <span style="width: 5px; height: 5px; background: #34C759; border-radius: 50%;"></span> Audited
+                </span>
+              </div>
+
+              <div style="display: flex; align-items: baseline; gap: 4px; margin-bottom: 4px;">
+                <span style="font-size: 22px; font-weight: 700; color: #38BDF8;">₱</span>
+                <span style="font-size: 34px; font-weight: 800; letter-spacing: -0.6px; color: #FFFFFF;">8,165.00</span>
+              </div>
+
+              <p style="font-size: 11px; color: #94A3B8; margin-bottom: 14px; line-height: 1.3;">
+                Net fund credited to Landbank Vault after fuel subsidies and cooperative reserves.
+              </p>
+
+              <!-- 3-Pill Cash Flow Metrics -->
+              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; background: rgba(255, 255, 255, 0.06); padding: 10px 8px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.08); text-align: center; margin-bottom: 12px;">
+                <div>
+                  <div style="font-size: 9px; font-weight: 700; color: #94A3B8; text-transform: uppercase;">Gross Fares</div>
+                  <strong style="font-size: 12px; color: #FFFFFF;">₱9,850</strong>
                 </div>
-                <div style="display:flex; justify-content:space-between; font-size:12px; padding:6px 0; border-bottom:1px solid var(--border-light);">
-                  <span>🏢 Terminal Dispatch & Security Fee</span>
-                  <strong style="color:var(--text-primary);">-₱450.00</strong>
+                <div style="border-left: 1px solid rgba(255,255,255,0.1); border-right: 1px solid rgba(255,255,255,0.1);">
+                  <div style="font-size: 9px; font-weight: 700; color: #34C759; text-transform: uppercase;">Fuel Subsidy</div>
+                  <strong style="font-size: 12px; color: #34C759;">+₱3,200</strong>
                 </div>
-                <div style="display:flex; justify-content:space-between; font-size:12px; padding:6px 0; border-bottom:1px solid var(--border-light);">
-                  <span>🔧 Cooperative PMS & Tire Reserve (10%)</span>
-                  <strong style="color:var(--text-primary);">-₱985.00</strong>
+                <div>
+                  <div style="font-size: 9px; font-weight: 700; color: #F87171; text-transform: uppercase;">Deductions</div>
+                  <strong style="font-size: 12px; color: #F87171;">-₱1,685</strong>
                 </div>
-                <div style="display:flex; justify-content:space-between; font-size:12px; padding:6px 0; border-bottom:1px solid var(--border-light);">
-                  <span>🏦 Emergency Welfare & Mutual Fund</span>
-                  <strong style="color:var(--text-primary);">-₱250.00</strong>
+              </div>
+
+              <!-- Multi-segment Deduction Visual Bar -->
+              <div>
+                <div style="display: flex; justify-content: space-between; font-size: 10px; color: #94A3B8; margin-bottom: 4px; font-weight: 600;">
+                  <span>Deduction Allocation</span>
+                  <span>100% Accounted</span>
                 </div>
-                <div style="display:flex; justify-content:space-between; font-size:13px; font-weight:800; padding-top:6px; color:var(--primary);">
-                  <span>Net Cooperative Boundary:</span>
-                  <span>₱8,165.00</span>
+                <div style="display: flex; height: 6px; border-radius: 6px; overflow: hidden; background: rgba(255, 255, 255, 0.1);">
+                  <div style="width: 26.7%; background: #007DFE;" title="Terminal Fee: ₱450 (26.7%)"></div>
+                  <div style="width: 58.5%; background: #AF52DE;" title="PMS Reserve: ₱985 (58.5%)"></div>
+                  <div style="width: 14.8%; background: #34C759;" title="Welfare Fund: ₱250 (14.8%)"></div>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 9px; color: #64748B; margin-top: 4px; font-weight: 600;">
+                  <span style="color: #60A5FA;">● Terminal (₱450)</span>
+                  <span style="color: #C084FC;">● PMS (₱985)</span>
+                  <span style="color: #4ADE80;">● Welfare (₱250)</span>
                 </div>
               </div>
             </div>
 
-            <!-- Smart Budget Recommendation -->
-            <div class="generic-box-card">
-              <div style="font-size:13px; font-weight:800; margin-bottom:6px; color:var(--secondary-green);">
-                💡 AI Smart Budget Recommendation
-              </div>
-              <p style="font-size:11.5px; color:var(--text-secondary); line-height:1.4; margin-bottom:10px;">
-                Based on current passenger demand across Jeepneys and TODA feeder routes, allocate ₱22,000 for driver share, ₱16,000 for weekly fuel, and ₱6,000 for vehicle servicing.
-              </p>
-              <button class="primary-wide-btn" style="background:var(--secondary-green);" onclick="triggerToast('Smart budget allocation applied to Landbank account', '✅')">
-                <i class="fa-solid fa-check"></i>
-                <span>Apply Smart Allocation</span>
+            <!-- 2. QUICK EXPENSE ACTION CLUSTER -->
+            <div style="display: flex; gap: 8px;">
+              <button class="download-outline-btn" style="flex: 1; padding: 8px 6px; font-size: 11px; justify-content: center; background: #FFFFFF; box-shadow: var(--shadow-sm);" onclick="triggerToast('Opening Fuel Subsidy Claim Terminal (Gov Card)', '⛽')">
+                <i class="fa-solid fa-gas-pump" style="color: #FF9500;"></i>
+                <span>Fuel Claim</span>
+              </button>
+              <button class="download-outline-btn" style="flex: 1; padding: 8px 6px; font-size: 11px; justify-content: center; background: #FFFFFF; box-shadow: var(--shadow-sm);" onclick="triggerToast('Opening PMS Maintenance Log Form', '🔧')">
+                <i class="fa-solid fa-wrench" style="color: #AF52DE;"></i>
+                <span>Log Repair</span>
+              </button>
+              <button class="download-outline-btn" style="flex: 1; padding: 8px 6px; font-size: 11px; justify-content: center; background: #FFFFFF; box-shadow: var(--shadow-sm);" onclick="triggerToast('Pasay Terminal Dispatch Pass Verified', '🏢')">
+                <i class="fa-solid fa-receipt" style="color: #007DFE;"></i>
+                <span>Dispatch Fee</span>
               </button>
             </div>
+
+            <!-- 3. ITEMIZED DEDUCTIONS & SUBSIDIES (POLISHED FINTECH LIST) -->
+            <div class="generic-box-card" style="padding: 16px 14px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <div>
+                  <h4 style="font-size: 13.5px; font-weight: 800; color: var(--text-primary);">Fiscal Breakdown</h4>
+                  <span style="font-size: 10.5px; color: var(--text-secondary);">Today's auto-deductions & credits</span>
+                </div>
+                <span style="font-size: 10px; font-weight: 700; color: var(--primary); background: var(--primary-light); padding: 3px 8px; border-radius: 6px;">4 Entries</span>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 10px;">
+                
+                <!-- Item 1: Fuel Subsidy -->
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 12px;">
+                  <div style="display: flex; align-items: center; gap: 10px;">
+                    <div style="width: 38px; height: 38px; border-radius: 10px; background: linear-gradient(135deg, #34C759 0%, #16A34A 100%); display: flex; align-items: center; justify-content: center; color: #FFF; font-size: 16px; flex-shrink: 0; box-shadow: 0 3px 8px rgba(52, 199, 89, 0.25);">
+                      <i class="fa-solid fa-gas-pump"></i>
+                    </div>
+                    <div>
+                      <div style="font-size: 12.5px; font-weight: 800; color: #166534; display: flex; align-items: center; gap: 6px;">
+                        Fuel Subsidy
+                        <span style="font-size: 9px; font-weight: 800; background: #DCFCE7; color: #15803D; padding: 1px 6px; border-radius: 4px;">GOV CARD</span>
+                      </div>
+                      <div style="font-size: 10px; color: #15803D; margin-top: 1px;">LTFRB Pantawid Pasada Fuel Credit</div>
+                    </div>
+                  </div>
+                  <div style="text-align: right;">
+                    <div style="font-size: 13.5px; font-weight: 800; color: #15803D;">+₱3,200.00</div>
+                    <span style="font-size: 9.5px; color: #166534; font-weight: 600;">Credited ✅</span>
+                  </div>
+                </div>
+
+                <!-- Item 2: Terminal Fee -->
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; background: #F8FAFC; border: 1px solid var(--border-light); border-radius: 12px;">
+                  <div style="display: flex; align-items: center; gap: 10px;">
+                    <div style="width: 38px; height: 38px; border-radius: 10px; background: linear-gradient(135deg, #007DFE 0%, #0284C7 100%); display: flex; align-items: center; justify-content: center; color: #FFF; font-size: 15px; flex-shrink: 0; box-shadow: 0 3px 8px rgba(0, 125, 254, 0.2);">
+                      <i class="fa-solid fa-building-shield"></i>
+                    </div>
+                    <div>
+                      <div style="font-size: 12.5px; font-weight: 800; color: var(--text-primary); display: flex; align-items: center; gap: 6px;">
+                        Terminal Dispatch & LGU
+                        <span style="font-size: 9px; font-weight: 800; background: var(--primary-light); color: var(--primary); padding: 1px 6px; border-radius: 4px;">PASAY</span>
+                      </div>
+                      <div style="font-size: 10px; color: var(--text-secondary); margin-top: 1px;">Terminal dispatchers & security dues</div>
+                    </div>
+                  </div>
+                  <div style="text-align: right;">
+                    <div style="font-size: 13.5px; font-weight: 800; color: var(--danger-red);">-₱450.00</div>
+                    <span style="font-size: 9.5px; color: var(--text-secondary); font-weight: 600;">Paid · 24 Trips</span>
+                  </div>
+                </div>
+
+                <!-- Item 3: PMS Reserve -->
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; background: #F8FAFC; border: 1px solid var(--border-light); border-radius: 12px;">
+                  <div style="display: flex; align-items: center; gap: 10px;">
+                    <div style="width: 38px; height: 38px; border-radius: 10px; background: linear-gradient(135deg, #AF52DE 0%, #7E22CE 100%); display: flex; align-items: center; justify-content: center; color: #FFF; font-size: 15px; flex-shrink: 0; box-shadow: 0 3px 8px rgba(175, 82, 222, 0.2);">
+                      <i class="fa-solid fa-wrench"></i>
+                    </div>
+                    <div>
+                      <div style="font-size: 12.5px; font-weight: 800; color: var(--text-primary); display: flex; align-items: center; gap: 6px;">
+                        PMS & Tire Reserve
+                        <span style="font-size: 9px; font-weight: 800; background: #F3E8FF; color: #7E22CE; padding: 1px 6px; border-radius: 4px;">10% AUTO</span>
+                      </div>
+                      <div style="font-size: 10px; color: var(--text-secondary); margin-top: 1px;">Preventive maintenance escrow</div>
+                    </div>
+                  </div>
+                  <div style="text-align: right;">
+                    <div style="font-size: 13.5px; font-weight: 800; color: var(--danger-red);">-₱985.00</div>
+                    <span style="font-size: 9.5px; color: #7E22CE; font-weight: 600;">Escrow Locked 🔒</span>
+                  </div>
+                </div>
+
+                <!-- Item 4: Driver Welfare Fund -->
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; background: #F8FAFC; border: 1px solid var(--border-light); border-radius: 12px;">
+                  <div style="display: flex; align-items: center; gap: 10px;">
+                    <div style="width: 38px; height: 38px; border-radius: 10px; background: linear-gradient(135deg, #FF9500 0%, #D97706 100%); display: flex; align-items: center; justify-content: center; color: #FFF; font-size: 15px; flex-shrink: 0; box-shadow: 0 3px 8px rgba(255, 149, 0, 0.2);">
+                      <i class="fa-solid fa-hand-holding-heart"></i>
+                    </div>
+                    <div>
+                      <div style="font-size: 12.5px; font-weight: 800; color: var(--text-primary); display: flex; align-items: center; gap: 6px;">
+                        Driver Welfare & Mutual
+                        <span style="font-size: 9px; font-weight: 800; background: #FEF3C7; color: #B45309; padding: 1px 6px; border-radius: 4px;">MUTUAL</span>
+                      </div>
+                      <div style="font-size: 10px; color: var(--text-secondary); margin-top: 1px;">Emergency medical & mutual aid pool</div>
+                    </div>
+                  </div>
+                  <div style="text-align: right;">
+                    <div style="font-size: 13.5px; font-weight: 800; color: var(--danger-red);">-₱250.00</div>
+                    <span style="font-size: 9.5px; color: #B45309; font-weight: 600;">Pooled 🛡️</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- 4. AI SMART BUDGET STRATEGY ENGINE (GLASSMORPHIC & INTERACTIVE) -->
+            <div style="background: linear-gradient(135deg, #F0FDF4 0%, #E0F2FE 100%); border-radius: 16px; padding: 16px 14px; border: 1px solid rgba(52, 199, 89, 0.3); box-shadow: var(--shadow-sm); position: relative;">
+              
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <div style="display: flex; align-items: center; gap: 6px;">
+                  <span style="font-size: 16px;">✨</span>
+                  <strong style="font-size: 13.5px; font-weight: 800; color: #0F172A;">AI Smart Budget Engine</strong>
+                </div>
+                <span style="font-size: 9.5px; font-weight: 800; background: var(--secondary-green); color: #FFF; padding: 2px 7px; border-radius: 6px; text-transform: uppercase;">Forecast</span>
+              </div>
+
+              <p style="font-size: 11px; color: #334155; line-height: 1.4; margin-bottom: 12px;">
+                AI demand model recommends optimal allocation based on 24 shift trips across Jeepneys and TODA feeder routes:
+              </p>
+
+              <!-- Strategy Allocation Breakdown Bars -->
+              <div style="display: flex; flex-direction: column; gap: 8px; background: rgba(255, 255, 255, 0.7); padding: 10px 12px; border-radius: 12px; border: 1px solid rgba(0, 0, 0, 0.05); margin-bottom: 12px;">
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 11px; font-weight: 700; margin-bottom: 3px;">
+                    <span style="color: #0F172A;">👨✈️ Driver Boundary Share (50%)</span>
+                    <strong style="color: var(--primary);">₱22,000.00</strong>
+                  </div>
+                  <div style="width: 100%; height: 5px; background: #E2E8F0; border-radius: 5px; overflow: hidden;">
+                    <div style="width: 50%; height: 100%; background: var(--primary); border-radius: 5px;"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 11px; font-weight: 700; margin-bottom: 3px;">
+                    <span style="color: #0F172A;">⛽ Weekly Fuel Reserve (36%)</span>
+                    <strong style="color: #FF9500;">₱16,000.00</strong>
+                  </div>
+                  <div style="width: 100%; height: 5px; background: #E2E8F0; border-radius: 5px; overflow: hidden;">
+                    <div style="width: 36%; height: 100%; background: #FF9500; border-radius: 5px;"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 11px; font-weight: 700; margin-bottom: 3px;">
+                    <span style="color: #0F172A;">🔧 Vehicle PMS Servicing (14%)</span>
+                    <strong style="color: #AF52DE;">₱6,000.00</strong>
+                  </div>
+                  <div style="width: 100%; height: 5px; background: #E2E8F0; border-radius: 5px; overflow: hidden;">
+                    <div style="width: 14%; height: 100%; background: #AF52DE; border-radius: 5px;"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Action Button -->
+              <button class="primary-wide-btn" style="background: linear-gradient(135deg, #34C759 0%, #15803D 100%); box-shadow: 0 4px 14px rgba(52, 199, 89, 0.35);" onclick="triggerToast('✅ Smart budget applied & synchronized to Landbank Vault', '🏦')">
+                <i class="fa-solid fa-check-double"></i>
+                <span>Apply Smart Allocation to Landbank Vault</span>
+              </button>
+            </div>
+
+            <!-- 5. RECENT OPERATIONAL RECEIPTS & AUDIT TRAIL -->
+            <div class="generic-box-card">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                <h4 style="font-size: 13px; font-weight: 800; color: var(--text-primary);">Recent E-Receipts & Invoices</h4>
+                <a class="view-all-action" onclick="triggerToast('Opening Cooperative E-Invoice Archive (28 items)', '📄')">View All (28) →</a>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 10px; background: #F8FAFC; border-radius: 8px; font-size: 11.5px; border: 1px solid var(--border-light);" onclick="triggerToast('Viewing E-Receipt: Fuel Voucher Shell Pasay #8812', '🧾')">
+                  <div>
+                    <strong>⛽ Shell EDSA-Pasay Fuel Voucher</strong>
+                    <div style="font-size: 10px; color: var(--text-secondary);">Today, 1:40 PM · Inv #SH-99214 · Unit #021</div>
+                  </div>
+                  <div style="text-align: right;">
+                    <strong style="color: var(--secondary-green);">₱1,200.00</strong>
+                    <div style="font-size: 9.5px; color: var(--secondary-green); font-weight: 700;">Approved ✅</div>
+                  </div>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 10px; background: #F8FAFC; border-radius: 8px; font-size: 11.5px; border: 1px solid var(--border-light);" onclick="triggerToast('Viewing E-Receipt: Goodyear Tire PMS Unit #022', '🧾')">
+                  <div>
+                    <strong>🔧 Goodyear Tire PMS Replacement</strong>
+                    <div style="font-size: 10px; color: var(--text-secondary);">Today, 10:15 AM · Inv #GY-44021 · Unit #022</div>
+                  </div>
+                  <div style="text-align: right;">
+                    <strong style="color: var(--danger-red);">₱840.00</strong>
+                    <div style="font-size: 9.5px; color: var(--primary); font-weight: 700;">Audited 🔍</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
 
@@ -3155,15 +3411,18 @@
       const headerBadge = document.getElementById('header-badge-tag');
       const headerLogo = document.getElementById('header-logo-icon');
       const backBtn = document.getElementById('header-back-btn');
+      const headerTagline = document.getElementById('header-tagline-text');
 
       if (tabName === 'home') {
         if (backBtn) backBtn.classList.remove('visible');
-        if (headerLogo) { headerLogo.style.display = "flex"; headerLogo.innerHTML = "🚐"; }
+        if (headerLogo) { headerLogo.style.display = "flex"; }
         if (headerTitle) headerTitle.innerText = "GPasada";
         if (headerBadge) { headerBadge.style.display = "inline-block"; headerBadge.innerText = "Coop"; }
+        if (headerTagline) { headerTagline.style.display = "block"; }
       } else {
         if (backBtn) backBtn.classList.add('visible');
         if (headerLogo) headerLogo.style.display = "none";
+        if (headerTagline) { headerTagline.style.display = "none"; }
         
         if (tabName === 'analytics') {
           if (headerTitle) headerTitle.innerText = "Analytics & Reports";
